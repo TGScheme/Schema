@@ -187,7 +187,7 @@ messageActionTopicEdit#c0944820 flags:# title:flags.0?string icon_emoji_id:flags
 messageActionSuggestProfilePhoto#57de635e photo:Photo = MessageAction;
 messageActionRequestedPeer#31518e9b button_id:int peers:Vector<Peer> = MessageAction;
 messageActionSetChatWallPaper#5060a3f4 flags:# same:flags.0?true for_both:flags.1?true wallpaper:WallPaper = MessageAction;
-messageActionGiftCode#56d03994 flags:# via_giveaway:flags.0?true unclaimed:flags.2?true boost_peer:flags.1?Peer months:int slug:string currency:flags.2?string amount:flags.2?long crypto_currency:flags.3?string crypto_amount:flags.3?long message:flags.4?TextWithEntities = MessageAction;
+messageActionGiftCode#56d03994 flags:# via_giveaway:flags.0?true unclaimed:flags.5?true boost_peer:flags.1?Peer months:int slug:string currency:flags.2?string amount:flags.2?long crypto_currency:flags.3?string crypto_amount:flags.3?long message:flags.4?TextWithEntities = MessageAction;
 messageActionGiveawayLaunch#a80f51e4 flags:# stars:flags.0?long = MessageAction;
 messageActionGiveawayResults#87e2f155 flags:# stars:flags.0?true winners_count:int unclaimed_count:int = MessageAction;
 messageActionBoostApply#cc02aa6d boosts:int = MessageAction;
@@ -1521,8 +1521,6 @@ inputStorePaymentStarsTopup#dddd0f56 stars:long currency:string amount:long = In
 inputStorePaymentStarsGift#1d741ef7 user_id:InputUser stars:long currency:string amount:long = InputStorePaymentPurpose;
 inputStorePaymentStarsGiveaway#751f08fa flags:# only_new_subscribers:flags.0?true winners_are_visible:flags.3?true stars:long boost_peer:InputPeer additional_peers:flags.1?Vector<InputPeer> countries_iso2:flags.2?Vector<string> prize_description:flags.4?string random_id:long until_date:int currency:string amount:long users:int = InputStorePaymentPurpose;
 
-premiumGiftOption#74c34319 flags:# months:int currency:string amount:long bot_url:string store_product:flags.0?string = PremiumGiftOption;
-
 paymentFormMethod#88f8f21b url:string title:string = PaymentFormMethod;
 
 emojiStatusEmpty#2de11aae = EmojiStatus;
@@ -1969,10 +1967,12 @@ paidReactionPrivacyPeer#dc6cfcf0 peer:InputPeer = PaidReactionPrivacy;
 account.paidMessagesRevenue#1e109708 stars_amount:long = account.PaidMessagesRevenue;
 
 requirementToContactEmpty#50a9839 = RequirementToContact;
-requirementToContactPaidMessages#b4f67e93 stars_amount:long = RequirementToContact;
 requirementToContactPremium#e581e4e9 = RequirementToContact;
+requirementToContactPaidMessages#b4f67e93 stars_amount:long = RequirementToContact;
 
 messages.messageEmpty#3f4e0648 = messages.MessageEmpty;
+
+premiumGiftOption#79c059f7 flags:# months:int currency:string amount:long bot_url:flags.1?string store_product:flags.0?string = PremiumGiftOption;
 
 messages.webViewResult#aadf159b result:BotInlineResult users:Vector<User> = messages.WebViewResult;
 
@@ -2133,8 +2133,8 @@ account.getPaidMessagesRevenue#f1266f38 user_id:InputUser = account.PaidMessages
 users.getUsers#d91a548 id:Vector<InputUser> = Vector<User>;
 users.getFullUser#b60f5918 id:InputUser = users.UserFull;
 users.setSecureValueErrors#90c894b5 id:InputUser errors:Vector<SecureValueError> = Bool;
-users.getIsPremiumRequiredToContact#a622aa10 id:Vector<InputUser> = Vector<Bool>;
 users.getRequirementsToContact#d89a83a3 id:Vector<InputUser> = Vector<RequirementToContact>;
+users.getIsPremiumRequiredToContact#a622aa10 id:Vector<InputUser> = ;
 
 contacts.getContactIDs#7adc669d hash:long = Vector<int>;
 contacts.getStatuses#c4a353ee = Vector<ContactStatus>;
