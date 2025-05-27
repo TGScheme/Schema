@@ -2428,7 +2428,7 @@ messages.reportMessagesDelivery#5a6d7395 flags:# push:flags.0?true peer:InputPee
 messages.getWebViewResult#22b6c214 peer:InputPeer bot:InputUser query_id:long = messages.WebViewResult;
 messages.forwardMessage#33963bf9 peer:InputPeer id:int random_id:long = Updates;
 messages.updatePaidMessagesPrice#4b12327b flags:# suggestions_allowed:flags.0?true channel:InputChannel send_paid_messages_stars:long = Updates;
-messages.getSavedDialogsByID#6f6f9c96 :# parent_peer:.1?InputPeer ids:Vector<InputPeer> = messages.SavedDialogs;
+messages.getSavedDialogsByID#6f6f9c96 flags:# parent_peer:flags.1?InputPeer ids:Vector<InputPeer> = messages.SavedDialogs;
 messages.getStatsURL#812c2ae6 flags:# dark:flags.0?true peer:InputPeer params:string = StatsURL;
 messages.getAllChats#875f74be except_ids:Vector<long> = messages.Chats;
 messages.readSavedHistory#ba4a3b5b parent_peer:InputPeer peer:InputPeer max_id:int = Bool;
