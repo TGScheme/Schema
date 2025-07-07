@@ -1917,7 +1917,7 @@ starGift#7f853c12 flags:# limited:flags.0?true sold_out:flags.1?true birthday:fl
 starGiftUnique#f63778ae flags:# id:long title:string slug:string num:int owner_id:flags.0?Peer owner_name:flags.1?string owner_address:flags.2?string attributes:Vector<StarGiftAttribute> availability_issued:int availability_total:int gift_address:flags.3?string resell_stars:flags.4?long released_by:flags.5?Peer = StarGift;
 
 payments.starGiftsNotModified#a388a368 = payments.StarGifts;
-payments.starGifts#901689ea hash:int gifts:Vector<StarGift> chats:Vector<Chat> users:Vector<User> = payments.StarGifts;
+payments.starGifts#901689ea hash:int gifts:Vector<StarGift> = payments.StarGifts;
 
 messageReportOption#7903e3d9 text:string option:bytes = MessageReportOption;
 
@@ -2011,6 +2011,8 @@ todoList#49b92a26 flags:# others_can_append:flags.0?true others_can_complete:fla
 todoCompletion#4cc120b7 id:int completed_by:long date:int = TodoCompletion;
 
 suggestedPost#e8e37e5 flags:# accepted:flags.1?true rejected:flags.2?true price:flags.3?StarsAmount schedule_date:flags.0?int = SuggestedPost;
+
+starGifts#2ed82995 hash:int gifts:Vector<StarGift> chats:Vector<Chat> users:Vector<User> = StarGifts;
 
 messages.messageEmpty#3f4e0648 = messages.MessageEmpty;
 
@@ -2768,4 +2770,4 @@ smsjobs.finishJob#4f1ebf24 flags:# job_id:string error:flags.0?string = Bool;
 
 fragment.getCollectibleInfo#be1e85ba collectible:InputCollectible = fragment.CollectibleInfo;
 
-// LAYER 208
+// LAYER 209
