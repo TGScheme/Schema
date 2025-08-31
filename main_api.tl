@@ -2522,7 +2522,6 @@ messages.createTheme#8432c21f flags:# slug:string title:string document:flags.2?
 messages.getAllChats#875f74be except_ids:Vector<long> = messages.Chats;
 messages.getTheme#8d9d742b format:string theme:InputTheme document_id:long = Theme;
 messages.checkCanSendGift#c0c4edc9 gift_id:long = CheckCanSendGiftResult;
-messages.sendEncryptedMultiMedia#cacacaca = messages.SentEncryptedMessage;
 messages.uploadWallPaper#dd853661 file:InputFile mime_type:string settings:WallPaperSettings = WallPaper;
 messages.getSavedMusicIds#e09d5faf hash:long = SavedMusicIds;
 messages.setWebViewResult#e41cd11d query_id:long = Bool;
