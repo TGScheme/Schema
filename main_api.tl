@@ -464,8 +464,8 @@ updateReadMonoForumInbox#77b0e372 channel_id:long saved_peer_id:Peer read_max_id
 updateReadMonoForumOutbox#a4a79376 channel_id:long saved_peer_id:Peer read_max_id:int = Update;
 updateMonoForumNoPaidException#9f812b08 flags:# exception:flags.0?true channel_id:long saved_peer_id:Peer = Update;
 updatePinnedForumTopic#683b2c52 flags:# pinned:flags.0?int peer:Peer topic_id:int = Update;
+updateGroupCallMessage#78c314e0 call:InputGroupCall from_id:Peer random_id:long message:TextWithEntities = Update;
 updateTranscribeAudio#88617090 flags:# final:flags.0?true transcription_id:long text:string = Update;
-updateGroupCallMessage#96fb0840 call:InputGroupCall from_id:Peer message:TextWithEntities = Update;
 updateBotSubscriptionExpire#a8ae3eb1 user_id:long payload:string until_date:int qts:int = Update;
 updateGroupCallEncryptedMessage#c957a766 call:InputGroupCall from_id:Peer encrypted_message:bytes = Update;
 updatePinnedForumTopics#def143d0 flags:# peer:Peer order:flags.0?Vector<int> = Update;
@@ -1384,7 +1384,7 @@ peerBlocked#e8fd8014 peer_id:Peer date:int = PeerBlocked;
 stats.messageStats#7fe91c14 views_graph:StatsGraph reactions_by_emotion_graph:StatsGraph = stats.MessageStats;
 
 groupCallDiscarded#7780bcb4 id:long access_hash:long duration:int = GroupCall;
-groupCall#553b0ba1 flags:# join_muted:flags.1?true can_change_join_muted:flags.2?true join_date_asc:flags.6?true schedule_start_subscribed:flags.8?true can_start_video:flags.9?true record_video_active:flags.11?true rtmp_stream:flags.12?true listeners_hidden:flags.13?true conference:flags.14?true creator:flags.15?true id:long access_hash:long participants_count:int title:flags.3?string stream_dc_id:flags.4?int record_start_date:flags.5?int schedule_date:flags.7?int unmuted_video_count:flags.10?int unmuted_video_limit:int version:int invite_link:flags.16?string = GroupCall;
+groupCall#553b0ba1 flags:# join_muted:flags.1?true can_change_join_muted:flags.2?true join_date_asc:flags.6?true schedule_start_subscribed:flags.8?true can_start_video:flags.9?true record_video_active:flags.11?true rtmp_stream:flags.12?true listeners_hidden:flags.13?true conference:flags.14?true creator:flags.15?true messages_enabled:Bool can_change_messages_enabled:Bool min:Bool id:long access_hash:long participants_count:int title:flags.3?string stream_dc_id:flags.4?int record_start_date:flags.5?int schedule_date:flags.7?int unmuted_video_count:flags.10?int unmuted_video_limit:int version:int invite_link:flags.16?string = GroupCall;
 
 inputGroupCall#d8aa840f id:long access_hash:long = InputGroupCall;
 inputGroupCallSlug#fe06823f slug:string = InputGroupCall;
@@ -1602,7 +1602,7 @@ stickerKeyword#fcfeb29c document_id:long keyword:Vector<string> = StickerKeyword
 username#b4073647 flags:# editable:flags.0?true active:flags.1?true username:string = Username;
 
 forumTopicDeleted#23f109b id:int = ForumTopic;
-forumTopic#71701da9 flags:# my:flags.1?true closed:flags.2?true pinned:flags.3?true short:flags.5?true hidden:flags.6?true id:int date:int title:string icon_color:int icon_emoji_id:flags.0?long top_message:int read_inbox_max_id:int read_outbox_max_id:int unread_count:int unread_mentions_count:int unread_reactions_count:int from_id:Peer notify_settings:PeerNotifySettings draft:flags.4?DraftMessage = ForumTopic;
+forumTopic#cdff0eca flags:# my:flags.1?true closed:flags.2?true pinned:flags.3?true short:flags.5?true hidden:flags.6?true id:int date:int peer:Peer title:string icon_color:int icon_emoji_id:flags.0?long top_message:int read_inbox_max_id:int read_outbox_max_id:int unread_count:int unread_mentions_count:int unread_reactions_count:int from_id:Peer notify_settings:PeerNotifySettings draft:flags.4?DraftMessage = ForumTopic;
 
 messages.forumTopics#367617d3 flags:# order_by_create_date:flags.0?true count:int topics:Vector<ForumTopic> messages:Vector<Message> chats:Vector<Chat> users:Vector<User> pts:int = messages.ForumTopics;
 
@@ -2514,14 +2514,15 @@ messages.checkPaidAuth#56e59f9c phone_number:string phone_code_hash:string form_
 messages.updateColor#684d214e flags:# for_profile:flags.1?true color:flags.2?PeerColor = Bool;
 messages.getStatsURL#812c2ae6 flags:# dark:flags.0?true peer:InputPeer params:string = StatsURL;
 messages.getAllChats#875f74be except_ids:Vector<long> = messages.Chats;
+messages.sendGroupCallMessage#87893014 call:InputGroupCall random_id:long message:TextWithEntities = Bool;
 messages.getForumTopicsByID#af0a4a08 peer:InputPeer topics:Vector<int> = messages.ForumTopics;
 messages.editForumTopic#cecc1134 flags:# peer:InputPeer topic_id:int title:flags.0?string icon_emoji_id:flags.1?long closed:flags.2?Bool hidden:flags.3?Bool = Updates;
 messages.deleteTopicHistory#d2816f10 peer:InputPeer top_msg_id:int = messages.AffectedHistory;
-messages.sendGroupCallMessage#db608048 call:InputGroupCall message:TextWithEntities = Bool;
 messages.setWebViewResult#e41cd11d query_id:long = Bool;
 messages.getUniqueGiftChatThemes#e42ce9c9 offset:string limit:int hash:long = ChatThemes;
 messages.sendGroupCallEncryptedMessage#e5afa56d call:InputGroupCall encrypted_message:bytes = Bool;
 messages.reorderPinnedForumTopics#e7841f0 flags:# force:flags.0?int peer:InputPeer order:Vector<int> = Updates;
+messages.toggleGroupCallSettings#e9723804 reset_invite_hash:Bool call:InputGroupCall join_muted:Bool messages_enabled:Bool = Updates;
 
 updates.getState#edd4882a = updates.State;
 updates.getDifference#19c2f763 flags:# pts:int pts_limit:flags.1?int pts_total_limit:flags.0?int date:int qts:int qts_limit:flags.2?int = updates.Difference;
