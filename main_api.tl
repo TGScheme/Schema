@@ -2522,7 +2522,7 @@ messages.setWebViewResult#e41cd11d query_id:long = Bool;
 messages.getUniqueGiftChatThemes#e42ce9c9 offset:string limit:int hash:long = ChatThemes;
 messages.sendGroupCallEncryptedMessage#e5afa56d call:InputGroupCall encrypted_message:bytes = Bool;
 messages.reorderPinnedForumTopics#e7841f0 flags:# force:flags.0?int peer:InputPeer order:Vector<int> = Updates;
-messages.toggleGroupCallSettings#e9723804 reset_invite_hash:Bool call:InputGroupCall join_muted:Bool messages_enabled:Bool = Updates;
+messages.toggleGroupCallSettings#e9723804 call:InputGroupCall join_muted:Bool messages_enabled:Bool = Updates;
 
 updates.getState#edd4882a = updates.State;
 updates.getDifference#19c2f763 flags:# pts:int pts_limit:flags.1?int pts_total_limit:flags.0?int date:int qts:int qts_limit:flags.2?int = updates.Difference;
