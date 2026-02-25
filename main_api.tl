@@ -1292,7 +1292,7 @@ folderPeer#e9baa668 peer:Peer folder_id:int = FolderPeer;
 
 messages.searchCounter#e844ebff flags:# inexact:flags.1?true filter:MessagesFilter count:int = messages.SearchCounter;
 
-urlAuthResultRequest#f8f8eb1e flags:# request_write_access:flags.0?true request_phone_number:flags.1?true bot:User domain:string browser:flags.2?string platform:flags.2?string ip:flags.2?string region:flags.2?string match_codes:flags.3?Vector<string> user_id_hint:flags.4?long = UrlAuthResult;
+urlAuthResultRequest#f8f8eb1e flags:# request_write_access:flags.0?true request_phone_number:flags.1?true match_codes_first:flags.5?true bot:User domain:string browser:flags.2?string platform:flags.2?string ip:flags.2?string region:flags.2?string match_codes:flags.3?Vector<string> user_id_hint:flags.4?long = UrlAuthResult;
 urlAuthResultAccepted#623a8fa0 flags:# url:flags.0?string = UrlAuthResult;
 urlAuthResultDefault#a9d6db1f = UrlAuthResult;
 
@@ -2608,6 +2608,7 @@ messages.declineUrlAuth#35436bbc url:string = Bool;
 messages.getStatsURL#812c2ae6 flags:# dark:flags.0?true peer:InputPeer params:string = StatsURL;
 messages.getAllChats#875f74be except_ids:Vector<long> = messages.Chats;
 messages.editChatParticipantRank#a00f32b0 peer:InputPeer participant:InputPeer rank:string = Updates;
+messages.checkUrlAuthMatchCode#c9a47b0b url:string match_code:string = Bool;
 messages.setWebViewResult#e41cd11d query_id:long = Bool;
 
 updates.getState#edd4882a = updates.State;
