@@ -1270,7 +1270,7 @@ pageTableRow#e0c0c5e5 cells:Vector<PageTableCell> = PageTableRow;
 pageCaption#6f747657 text:RichText credit:RichText = PageCaption;
 
 pageListItemText#2f58683c flags:# checkbox:flags.0?true checked:flags.1?true text:RichText = PageListItem;
-pageListItemBlocks#25e073fc blocks:Vector<PageBlock> = PageListItem;
+pageListItemBlocks#63ca67aa flags:# checkbox:flags.0?true checked:flags.1?true blocks:Vector<PageBlock> = PageListItem;
 
 pageListOrderedItemText#15031189 flags:# checkbox:flags.0?true checked:flags.1?true num:flags.2?string text:RichText value:flags.3?int type:flags.4?string = PageListOrderedItem;
 pageListOrderedItemBlocks#8ff2d5f0 flags:# checkbox:flags.0?true checked:flags.1?true num:flags.2?string blocks:Vector<PageBlock> value:flags.3?int type:flags.4?string = PageListOrderedItem;
