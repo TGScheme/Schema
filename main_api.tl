@@ -2702,6 +2702,7 @@ messages.deleteParticipantReaction#e3b7f82c peer:InputPeer msg_id:int participan
 messages.getPersonalChannelHistory#55fb0996 user_id:InputUser limit:int max_id:int min_id:int hash:long = messages.Messages;
 messages.getWebViewResult#22b6c214 peer:InputPeer bot:InputUser query_id:long = messages.WebViewResult;
 messages.forwardMessage#33963bf9 peer:InputPeer id:int random_id:long = Updates;
+messages.getRichMessage#501569cf peer:InputPeer id:int = messages.Messages;
 messages.getWebBrowserSettings#56655768 hash:long = WebBrowserSettings;
 messages.toggleWebBrowserSettingsException#60ed4229 flags:# delete:flags.1?true open_external_browser:flags.0?Bool url:string = Updates;
 messages.exportBotToken#63b089 bot_id:long revoke:Bool = ExportedBotToken;
