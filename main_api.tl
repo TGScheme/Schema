@@ -3109,7 +3109,7 @@ communities.togglePeerLink#736dcfea flags:# visible:flags.0?true hidden:flags.1?
 communities.togglePeerLinkRequestApproval#8c8219a8 flags:# reject:flags.0?true community:InputChannel peer:InputPeer = Bool;
 communities.getPeerLinkRequests#93773344 community:InputChannel offset:string limit:int = PeerLinkRequests;
 communities.toggleParticipantBanned#9967ad0f flags:# unban:flags.0?true community:InputChannel participant:InputPeer = Bool;
-communities.create#a63859ec flags:# title:string about:flags.0?string peer:InputPeer = Updates;
+communities.create#a63859ec flags:# hidden:flags.1?true title:string about:flags.0?string peer:InputPeer = Updates;
 communities.getJoinedCommunities#a663e830 = messages.Chats;
 communities.toggleAllPeerLinkRequestApproval#bfe3dd3d flags:# reject:flags.0?true community:InputChannel = Bool;
 communities.toggleCommunityCollapsedInDialogs#d766e3ea flags:# collapsed:flags.0?true community:InputChannel = Updates;
