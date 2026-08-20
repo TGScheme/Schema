@@ -2312,8 +2312,6 @@ premiumGiftOption#79c059f7 flags:# months:int currency:string amount:long bot_ur
 
 messages.webViewResult#aadf159b result:BotInlineResult users:Vector<User> = messages.WebViewResult;
 
-editMessage#cf9c725b = messages.EditMessage;
-
 ---functions---
 
 invokeAfterMsg#cb9f372d {X:Type} msg_id:long query:!X = X;
@@ -3156,6 +3154,7 @@ ephemeral.deleteMessage#92f6e797 flags:# peer:flags.0?InputPeer receiver_id:Inpu
 ephemeral.reportMessage#8704f2bf peer:InputPeer id:int option:bytes message:string = ReportResult;
 ephemeral.getCallbackAnswer#3fa464c8 flags:# peer:InputPeer id:int data:flags.1?bytes = messages.BotCallbackAnswer;
 ephemeral.deleteAllWelcomeMessages#734f9721 peer:InputPeer = Bool;
+ephemeral.editMessage#cf9c725b flags:# invert_media:flags.5?true welcome:flags.6?true peer:flags.7?InputPeer receiver_id:InputUser id:int message:flags.0?string media:flags.3?InputMedia entities:flags.1?Vector<MessageEntity> reply_markup:flags.2?ReplyMarkup rich_message:flags.4?InputRichMessage = Updates;
 ephemeral.getWelcomeMessages#db9ac18d peer:InputPeer hash:long = ephemeral.WelcomeMessages;
 ephemeral.deleteWelcomeMessage#e882a9e1 peer:InputPeer id:int = Bool;
 
