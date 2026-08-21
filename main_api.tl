@@ -495,8 +495,8 @@ updateWebBrowserException#140502d1 flags:# delete:flags.1?true open_external_bro
 updateNewEphemeralMessage#20bcbba1 message:EphemeralMessage = Update;
 updateDeleteEphemeralMessages#56dbfcf8 peer:Peer ids:Vector<int> = Update;
 updateEditEphemeralMessage#4bbb8f01 message:EphemeralMessage = Update;
-updateBotStarsSubscription#6c0d8e23 flags:# canceled:flags.0?true payment_failed:flags.1?true restored:flags.2?true user_id:long payload:bytes qts:int = Update;
 updateEphemeralBotCallbackQuery#7c1079d6 flags:# query_id:long user_id:long peer:flags.0?Peer msg_id:int data:bytes chat_instance:flags.1?long message:EphemeralMessage = Update;
+updateBotStarsSubscription#6c0d8e23 flags:# canceled:flags.0?true payment_failed:flags.1?true restored:flags.2?true user_id:long payload:bytes qts:int = Update;
 updateTranscribeAudio#88617090 flags:# final:flags.0?true transcription_id:long text:string = Update;
 updateBotSubscriptionExpire#a8ae3eb1 user_id:long payload:string until_date:int qts:int = Update;
 
@@ -593,7 +593,7 @@ sendMessageChooseStickerAction#b05ac6b1 = SendMessageAction;
 sendMessageEmojiInteraction#25972bcb emoticon:string msg_id:int interaction:DataJSON = SendMessageAction;
 sendMessageEmojiInteractionSeen#b665902e emoticon:string = SendMessageAction;
 sendMessageTextDraftAction#3630b85a flags:# can_stop:flags.0?true keep_on_stop:flags.1?true random_id:long text:TextWithEntities = SendMessageAction;
-inputSendMessageRichMessageDraftAction#e2b23b51 random_id:long rich_message:InputRichMessage = SendMessageAction;
+inputSendMessageRichMessageDraftAction#a937c7be flags:# can_stop:flags.0?true keep_on_stop:flags.1?true random_id:long rich_message:InputRichMessage = SendMessageAction;
 sendMessageRichMessageDraftAction#52564893 flags:# can_stop:flags.0?true keep_on_stop:flags.1?true random_id:long rich_message:RichMessage = SendMessageAction;
 sendMessageStopDraftAction#fbf902b0 random_id:long = SendMessageAction;
 
@@ -728,23 +728,6 @@ botCommand#9852d6d2 flags:# ephemeral:flags.0?true command:string description:st
 botInfo#4d8a0299 flags:# has_preview_medias:flags.6?true user_id:flags.0?long description:flags.1?string description_photo:flags.4?Photo description_document:flags.5?Document commands:flags.2?Vector<BotCommand> menu_button:flags.3?BotMenuButton privacy_policy_url:flags.7?string app_settings:flags.8?BotAppSettings verifier_settings:flags.9?BotVerifierSettings = BotInfo;
 
 keyboardButton#2f67a72f flags:# style:flags.10?KeyboardButtonStyle text:string type:ButtonType = KeyboardButton;
-keyboardButtonUrl#d80c25ec flags:# style:flags.10?KeyboardButtonStyle text:string url:string = KeyboardButton;
-keyboardButtonCallback#e62bc960 flags:# requires_password:flags.0?true style:flags.10?KeyboardButtonStyle text:string data:bytes = KeyboardButton;
-keyboardButtonRequestPhone#417efd8f flags:# style:flags.10?KeyboardButtonStyle text:string = KeyboardButton;
-keyboardButtonRequestGeoLocation#aa40f94d flags:# style:flags.10?KeyboardButtonStyle text:string = KeyboardButton;
-keyboardButtonSwitchInline#991399fc flags:# same_peer:flags.0?true style:flags.10?KeyboardButtonStyle text:string query:string peer_types:flags.1?Vector<InlineQueryPeerType> = KeyboardButton;
-keyboardButtonGame#89c590f9 flags:# style:flags.10?KeyboardButtonStyle text:string = KeyboardButton;
-keyboardButtonBuy#3fa53905 flags:# style:flags.10?KeyboardButtonStyle text:string = KeyboardButton;
-keyboardButtonUrlAuth#f51006f9 flags:# style:flags.10?KeyboardButtonStyle text:string fwd_text:flags.0?string url:string button_id:int = KeyboardButton;
-inputKeyboardButtonUrlAuth#68013e72 flags:# request_write_access:flags.0?true style:flags.10?KeyboardButtonStyle text:string fwd_text:flags.1?string url:string bot:InputUser = KeyboardButton;
-keyboardButtonRequestPoll#7a11d782 flags:# style:flags.10?KeyboardButtonStyle quiz:flags.0?Bool text:string = KeyboardButton;
-inputKeyboardButtonUserProfile#7d5e07c7 flags:# style:flags.10?KeyboardButtonStyle text:string user_id:InputUser = KeyboardButton;
-keyboardButtonUserProfile#c0fd5d09 flags:# style:flags.10?KeyboardButtonStyle text:string user_id:long = KeyboardButton;
-keyboardButtonWebView#e846b1a0 flags:# style:flags.10?KeyboardButtonStyle text:string url:string = KeyboardButton;
-keyboardButtonSimpleWebView#e15c4370 flags:# style:flags.10?KeyboardButtonStyle text:string url:string = KeyboardButton;
-keyboardButtonRequestPeer#5b0f15f5 flags:# style:flags.10?KeyboardButtonStyle text:string button_id:int peer_type:RequestPeerType max_quantity:int = KeyboardButton;
-inputKeyboardButtonRequestPeer#2b78156 flags:# name_requested:flags.0?true username_requested:flags.1?true photo_requested:flags.2?true style:flags.10?KeyboardButtonStyle text:string button_id:int peer_type:RequestPeerType max_quantity:int = KeyboardButton;
-keyboardButtonCopy#bcc4af10 flags:# style:flags.10?KeyboardButtonStyle text:string copy_text:string = KeyboardButton;
 
 keyboardButtonRow#77608b83 buttons:Vector<KeyboardButton> = KeyboardButtonRow;
 
@@ -1005,8 +988,8 @@ pageBlockMath#59080c20 source:string = PageBlock;
 pageBlockThinking#3c29a3e2 text:RichText = PageBlock;
 inputPageBlockMap#574b617f geo:InputGeoPoint zoom:int w:int h:int caption:PageCaption = PageBlock;
 pageBlockBlockquoteBlocks#e6e47c4 blocks:Vector<PageBlock> caption:RichText = PageBlock;
-pageBlockDocument#38fa3ba3 document_id:long caption:PageCaption = PageBlock;
 pageBlockButtonRow#6d640318 flags:# align_left:flags.0?true align_center:flags.1?true align_right:flags.2?true buttons:Vector<PageButton> = PageBlock;
+pageBlockDocument#38fa3ba3 document_id:long caption:PageCaption = PageBlock;
 
 phoneCallDiscardReasonMissed#85e42301 = PhoneCallDiscardReason;
 phoneCallDiscardReasonDisconnect#e095c1a0 = PhoneCallDiscardReason;
@@ -2266,7 +2249,7 @@ communityPeerRequest#7beafa85 flags:# visible:flags.0?true peer:Peer requested_b
 
 communities.peerLinkRequests#2244afad flags:# total_count:int requests:Vector<CommunityPeerRequest> next_offset:flags.0?string chats:Vector<Chat> users:Vector<User> = communities.PeerLinkRequests;
 
-ephemeralMessage#dd27bee9 flags:# out:flags.0?true welcome:flags.5?true invert_media:flags.7?true noforwards:flags.12?true id:int from_id:Peer peer_id:flags.9?Peer receiver_id:long top_msg_id:flags.1?int date:int message:string entities:flags.2?Vector<MessageEntity> media:flags.3?MessageMedia reply_markup:flags.4?ReplyMarkup reply_to:flags.6?MessageReplyHeader rich_message:flags.8?RichMessage chat_instance:flags.10?long anchor_msg_id:flags.11?int = EphemeralMessage;
+ephemeralMessage#dd27bee9 flags:# out:flags.0?true welcome_template:flags.5?true invert_media:flags.7?true noforwards:flags.12?true id:int from_id:Peer peer_id:flags.9?Peer receiver_id:long top_msg_id:flags.1?int date:int message:string entities:flags.2?Vector<MessageEntity> media:flags.3?MessageMedia reply_markup:flags.4?ReplyMarkup reply_to:flags.6?MessageReplyHeader rich_message:flags.8?RichMessage chat_instance:flags.10?long anchor_msg_id:flags.11?int = EphemeralMessage;
 
 communities.participantJoinedChats#8d78512a creator_chat_ids:Vector<long> joined_chat_ids:Vector<long> chats:Vector<Chat> users:Vector<User> = communities.ParticipantJoinedChats;
 
@@ -2274,39 +2257,41 @@ messages.translatedRichMessage#4203998f result:Vector<RichMessage> = messages.Tr
 
 messages.composedRichMessageWithAI#4c4537c8 result:RichMessage = messages.ComposedRichMessageWithAI;
 
-ephemeral.welcomeMessages#104fc872 hash:long messages:Vector<EphemeralMessage> = ephemeral.WelcomeMessages;
-ephemeral.welcomeMessagesNotModified#59ffdb31 = ephemeral.WelcomeMessages;
+buttonTypeDefault#c9dd90e9 = ButtonType;
+buttonTypeRequestPhone#df3d36f9 = ButtonType;
+buttonTypeRequestGeoLocation#9beee140 = ButtonType;
+buttonTypeRequestPoll#aacfff84 flags:# quiz:flags.0?Bool = ButtonType;
+buttonTypeRequestPeer#4f58a237 flags:# button_id:int peer_type:RequestPeerType max_quantity:int = ButtonType;
+inputButtonTypeRequestPeer#3fe268fe flags:# name_requested:flags.0?true username_requested:flags.1?true photo_requested:flags.2?true button_id:int peer_type:RequestPeerType max_quantity:int = ButtonType;
+buttonTypeSimpleWebView#c01a597a url:string = ButtonType;
+
+inlineButtonTypeUrl#eca4f8d4 url:string = InlineButtonType;
+inlineButtonTypeUrlAuth#bfd02da2 flags:# fwd_text:flags.0?string url:string button_id:int = InlineButtonType;
+inputInlineButtonTypeUrlAuth#9961bcb4 flags:# request_write_access:flags.0?true fwd_text:flags.1?string url:string bot:flags.2?InputUser = InlineButtonType;
+inlineButtonTypeWebView#3bcab5b4 url:string = InlineButtonType;
+inlineButtonTypeCallback#2955bc38 flags:# requires_password:flags.0?true data:bytes = InlineButtonType;
+inlineButtonTypeGame#5cd3709d = InlineButtonType;
+inlineButtonTypeBuy#48bad7a5 = InlineButtonType;
+inlineButtonTypeSwitchInline#93773ff5 flags:# same_peer:flags.0?true query:string peer_types:flags.1?Vector<InlineQueryPeerType> = InlineButtonType;
+inlineButtonTypeUserProfile#3fa33fcf user_id:long = InlineButtonType;
+inputInlineButtonTypeUserProfile#53f3ce5a user_id:InputUser = InlineButtonType;
+inlineButtonTypeCopy#b41d3272 copy_text:string = InlineButtonType;
+inlineButtonTypeDisabled#a438619d = InlineButtonType;
 
 keyboardInlineButton#11c1a322 flags:# style:flags.10?KeyboardButtonStyle text:string type:InlineButtonType = KeyboardInlineButton;
 
 keyboardInlineButtonRow#19420af6 buttons:Vector<KeyboardInlineButton> = KeyboardInlineButtonRow;
 
-inlineButtonTypeCallback#2955bc38 flags:# requires_password:flags.0?true data:bytes = InlineButtonType;
-inlineButtonTypeWebView#3bcab5b4 url:string = InlineButtonType;
-inlineButtonTypeUserProfile#3fa33fcf user_id:long = InlineButtonType;
-inlineButtonTypeBuy#48bad7a5 = InlineButtonType;
-inputInlineButtonTypeUserProfile#53f3ce5a user_id:InputUser = InlineButtonType;
-inlineButtonTypeGame#5cd3709d = InlineButtonType;
-inlineButtonTypeSwitchInline#93773ff5 flags:# same_peer:flags.0?true query:string peer_types:flags.1?Vector<InlineQueryPeerType> = InlineButtonType;
-inputInlineButtonTypeUrlAuth#9961bcb4 flags:# request_write_access:flags.0?true fwd_text:flags.1?string url:string bot:flags.2?InputUser = InlineButtonType;
-inlineButtonTypeDisabled#a438619d = InlineButtonType;
-inlineButtonTypeCopy#b41d3272 copy_text:string = InlineButtonType;
-inlineButtonTypeUrlAuth#bfd02da2 flags:# fwd_text:flags.0?string url:string button_id:int = InlineButtonType;
-inlineButtonTypeUrl#eca4f8d4 url:string = InlineButtonType;
-
 richButtonStyle#3c610bd flags:# bg_primary:flags.0?true bg_danger:flags.1?true bg_success:flags.2?true link:flags.3?true = RichButtonStyle;
 
-messages.messageEmpty#3f4e0648 = messages.Message;
-
-inputButtonTypeRequestPeer#3fe268fe flags:# name_requested:flags.0?true username_requested:flags.1?true photo_requested:flags.2?true button_id:int peer_type:RequestPeerType max_quantity:int = ButtonType;
-buttonTypeRequestPeer#4f58a237 flags:# button_id:int peer_type:RequestPeerType max_quantity:int = ButtonType;
-buttonTypeRequestGeoLocation#9beee140 = ButtonType;
-buttonTypeRequestPoll#aacfff84 flags:# quiz:flags.0?Bool = ButtonType;
-buttonTypeSimpleWebView#c01a597a url:string = ButtonType;
-buttonTypeDefault#c9dd90e9 = ButtonType;
-buttonTypeRequestPhone#df3d36f9 = ButtonType;
-
 pageButton#692a5488 flags:# text:RichText type:InlineButtonType style:flags.0?RichButtonStyle = PageButton;
+
+ephemeral.welcomeMessagesNotModified#59ffdb31 = ephemeral.WelcomeMessages;
+ephemeral.welcomeMessages#104fc872 hash:long messages:Vector<EphemeralMessage> = ephemeral.WelcomeMessages;
+
+auth.firebasePnvIntent#df5ac00c nonce:string digital_credential_payload:string = auth.FirebasePnvIntent;
+
+messages.messageEmpty#3f4e0648 = messages.Message;
 
 premiumGiftOption#79c059f7 flags:# months:int currency:string amount:long bot_url:flags.1?string store_product:flags.0?string = PremiumGiftOption;
 
@@ -2352,6 +2337,9 @@ auth.reportMissingCode#cb9deff6 phone_number:string phone_code_hash:string mnc:s
 auth.checkPaidAuth#56e59f9c phone_number:string phone_code_hash:string form_id:long = auth.SentCode;
 auth.initPasskeyLogin#518ad0b7 api_id:int api_hash:string = auth.PasskeyLoginOptions;
 auth.finishPasskeyLogin#9857ad07 flags:# credential:InputPasskeyCredential from_dc_id:flags.0?int from_auth_key_id:flags.0?long = auth.Authorization;
+auth.initFirebasePnvLogin#777df37a api_id:int api_hash:string = auth.FirebasePnvIntent;
+auth.finishFirebasePnvLogin#2c85094c google_token:string = auth.Authorization;
+auth.firebasePnvSignUp#783f6b56 flags:# no_joined_notifications:flags.0?true first_name:string last_name:string = auth.Authorization;
 
 account.registerDevice#ec86017a flags:# no_muted:flags.0?true token_type:int token:string app_sandbox:Bool secret:bytes other_uids:Vector<long> = Bool;
 account.unregisterDevice#6a0d3206 token_type:int token:string other_uids:Vector<long> = Bool;
@@ -2921,7 +2909,7 @@ bots.setCustomVerification#8b89dfbd flags:# enabled:flags.1?true bot:flags.0?Inp
 bots.getBotRecommendations#a1b70815 bot:InputUser = users.Users;
 bots.checkUsername#87f2219b username:string = Bool;
 bots.createBot#e5b17f2b flags:# via_deeplink:flags.0?true name:string username:string manager_id:InputUser = User;
-bots.exportBotToken#63b089 bot_id:long revoke:Bool = bots.ExportedBotToken;
+bots.exportBotToken#bd0d99eb bot:InputUser revoke:Bool = bots.ExportedBotToken;
 bots.requestWebViewButton#31a2a35e user_id:InputUser button:KeyboardButton = bots.RequestedButton;
 bots.getRequestedWebViewButton#bf25b7f3 bot:InputUser webapp_req_id:string = KeyboardButton;
 bots.getAccessSettings#213853a3 bot:InputUser = bots.AccessSettings;
@@ -3149,13 +3137,13 @@ communities.toggleAllPeerLinkRequestApproval#bfe3dd3d flags:# reject:flags.0?tru
 communities.toggleParticipantBanned#9967ad0f flags:# unban:flags.0?true community:InputChannel participant:InputPeer = Bool;
 communities.getParticipantJoinedChats#f87eabab community:InputChannel participant:InputPeer = communities.ParticipantJoinedChats;
 
-ephemeral.sendMessage#ba8d5f35 flags:# invert_media:flags.6?true welcome:flags.7?true anchor:flags.9?true peer:flags.8?InputPeer receiver_id:InputUser query_id:flags.0?long message:string entities:flags.1?Vector<MessageEntity> media:flags.2?InputMedia reply_markup:flags.3?ReplyMarkup rich_message:flags.4?InputRichMessage random_id:long reply_to:flags.5?InputReplyTo = Updates;
+ephemeral.sendMessage#ba8d5f35 flags:# invert_media:flags.6?true welcome:flags.7?true anchor:flags.9?true noforwards:flags.10?true peer:flags.8?InputPeer receiver_id:InputUser query_id:flags.0?long message:string entities:flags.1?Vector<MessageEntity> media:flags.2?InputMedia reply_markup:flags.3?ReplyMarkup rich_message:flags.4?InputRichMessage random_id:long reply_to:flags.5?InputReplyTo = Updates;
 ephemeral.deleteMessage#92f6e797 flags:# peer:flags.0?InputPeer receiver_id:InputUser id:int = Bool;
 ephemeral.reportMessage#8704f2bf peer:InputPeer id:int option:bytes message:string = ReportResult;
 ephemeral.getCallbackAnswer#3fa464c8 flags:# peer:InputPeer id:int data:flags.1?bytes = messages.BotCallbackAnswer;
-ephemeral.deleteAllWelcomeMessages#734f9721 peer:InputPeer = Bool;
 ephemeral.editMessage#cf9c725b flags:# invert_media:flags.5?true welcome:flags.6?true peer:flags.7?InputPeer receiver_id:InputUser id:int message:flags.0?string media:flags.3?InputMedia entities:flags.1?Vector<MessageEntity> reply_markup:flags.2?ReplyMarkup rich_message:flags.4?InputRichMessage = Updates;
-ephemeral.getWelcomeMessages#db9ac18d peer:InputPeer hash:long = ephemeral.WelcomeMessages;
 ephemeral.deleteWelcomeMessage#e882a9e1 peer:InputPeer id:int = Bool;
+ephemeral.deleteAllWelcomeMessages#734f9721 peer:InputPeer = Bool;
+ephemeral.getWelcomeMessages#db9ac18d peer:InputPeer hash:long = ephemeral.WelcomeMessages;
 
 // LAYER 229
