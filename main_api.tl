@@ -224,8 +224,8 @@ messageActionPollAppendAnswer#9da1cd6c answer:PollAnswer = MessageAction;
 messageActionPollDeleteAnswer#399674dc answer:PollAnswer = MessageAction;
 messageActionManagedBotCreated#16605e3e bot_id:long = MessageAction;
 messageActionChangeCommunity#5d20bae8 flags:# community_id:flags.0?long = MessageAction;
-messageActionPhoneNumberRequest#1baa035 = MessageAction;
 messageActionChatJoinedViaCommunity#4a8bfe80 community_id:long = MessageAction;
+messageActionPhoneNumberRequest#1baa035 = MessageAction;
 
 dialog#fc89f7f3 flags:# pinned:flags.2?true unread_mark:flags.3?true view_forum_as_messages:flags.6?true peer:Peer top_message:int read_inbox_max_id:int read_outbox_max_id:int unread_count:int unread_mentions_count:int unread_reactions_count:int unread_poll_votes_count:int notify_settings:PeerNotifySettings pts:flags.0?int draft:flags.1?DraftMessage folder_id:flags.4?int ttl_period:flags.5?int = Dialog;
 dialogFolder#71bd134c flags:# pinned:flags.2?true folder:Folder peer:Peer top_message:int unread_muted_peers_count:int unread_unmuted_peers_count:int unread_muted_messages_count:int unread_unmuted_messages_count:int = Dialog;
@@ -593,6 +593,7 @@ sendMessageChooseStickerAction#b05ac6b1 = SendMessageAction;
 sendMessageEmojiInteraction#25972bcb emoticon:string msg_id:int interaction:DataJSON = SendMessageAction;
 sendMessageEmojiInteractionSeen#b665902e emoticon:string = SendMessageAction;
 sendMessageTextDraftAction#3630b85a flags:# can_stop:flags.0?true keep_on_stop:flags.1?true random_id:long text:TextWithEntities = SendMessageAction;
+inputSendMessageRichMessageDraftAction#a937c7be flags:# can_stop:flags.0?true keep_on_stop:flags.1?true random_id:long rich_message:InputRichMessage = SendMessageAction;
 sendMessageRichMessageDraftAction#52564893 flags:# can_stop:flags.0?true keep_on_stop:flags.1?true random_id:long rich_message:RichMessage = SendMessageAction;
 sendMessageStopDraftAction#fbf902b0 random_id:long = SendMessageAction;
 
@@ -2767,7 +2768,7 @@ messages.translateRichMessage#1a542004 flags:# peer:flags.0?InputPeer id:flags.0
 messages.composeRichMessageWithAI#8d7ae6af flags:# proofread:flags.0?true emojify:flags.3?true text:flags.4?InputRichMessage translate_to_lang:flags.1?string tone:flags.2?InputAiComposeTone = messages.ComposedRichMessageWithAI;
 messages.requestChatJoinWebView#ba9ee679 flags:# query_id:long theme_params:flags.0?DataJSON platform:string = WebViewResult;
 messages.getWebViewResult#22b6c214 peer:InputPeer bot:InputUser query_id:long = messages.WebViewResult;
-messages.forwardMessage#33963bf9 peer:InputPeer id:int random_id:long = Updates;
+messages.forwardMessage#33963bf9 peer:InputPeer f22465id:int random_id:long = Updates;
 messages.getStatsURL#812c2ae6 flags:# dark:flags.0?true peer:InputPeer params:string = StatsURL;
 messages.getAllChats#875f74be except_ids:Vector<long> = messages.Chats;
 messages.setWebViewResult#e41cd11d query_id:long result:InputBotInlineResult = Bool;
