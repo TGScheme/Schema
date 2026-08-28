@@ -2768,7 +2768,7 @@ messages.translateRichMessage#1a542004 flags:# peer:flags.0?InputPeer id:flags.0
 messages.composeRichMessageWithAI#8d7ae6af flags:# proofread:flags.0?true emojify:flags.3?true text:flags.4?InputRichMessage translate_to_lang:flags.1?string tone:flags.2?InputAiComposeTone = messages.ComposedRichMessageWithAI;
 messages.requestChatJoinWebView#ba9ee679 flags:# query_id:long theme_params:flags.0?DataJSON platform:string = WebViewResult;
 messages.getWebViewResult#22b6c214 peer:InputPeer bot:InputUser query_id:long = messages.WebViewResult;
-messages.forwardMessage#33963bf9 peer:InputPeer f22465id:int random_id:long = Updates;
+messages.forwardMessage#33963bf9 peer:InputPeer id:int random_id:long = Updates;
 messages.getStatsURL#812c2ae6 flags:# dark:flags.0?true peer:InputPeer params:string = StatsURL;
 messages.getAllChats#875f74be except_ids:Vector<long> = messages.Chats;
 messages.setWebViewResult#e41cd11d query_id:long result:InputBotInlineResult = Bool;
