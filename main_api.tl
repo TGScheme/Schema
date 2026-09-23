@@ -2174,7 +2174,6 @@ inputPasskeyResponseRegister#3e63935c client_data:DataJSON attestation_data:byte
 inputPasskeyResponseLogin#c31fc14a client_data:DataJSON authenticator_data:bytes signature:bytes user_handle:string = InputPasskeyResponse;
 
 inputPasskeyCredentialPublicKey#3c27b78f id:string raw_id:string response:InputPasskeyResponse = InputPasskeyCredential;
-inputPasskeyCredentialFirebasePNV#5b1ccb28 pnv_token:string = InputPasskeyCredential;
 
 starGiftBackground#aff56398 center_color:int edge_color:int text_color:int = StarGiftBackground;
 
