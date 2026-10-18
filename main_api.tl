@@ -1343,7 +1343,7 @@ folderPeer#e9baa668 peer:Peer folder_id:int = FolderPeer;
 
 messages.searchCounter#e844ebff flags:# inexact:flags.1?true filter:MessagesFilter count:int = messages.SearchCounter;
 
-urlAuthResultRequest#bdca6167 flags:# request_write_access:flags.0?true request_phone_number:flags.1?true match_codes_first:flags.5?true app:flags.6?true request_wallet:flags.8?true bot:User domain:string browser:flags.2?string platform:flags.2?string ip:flags.2?string region:flags.2?string match_codes:flags.3?Vector<string> user_id_hint:flags.4?long verified_app_name:flags.7?string tc_session_id:flags.9?long tc_client_id:flags.10?string = UrlAuthResult;
+urlAuthResultRequest#bdca6167 flags:# request_write_access:flags.0?true request_phone_number:flags.1?true match_codes_first:flags.5?true is_app:flags.6?true request_wallet:flags.8?true bot:User domain:string browser:flags.2?string platform:flags.2?string ip:flags.2?string region:flags.2?string match_codes:flags.3?Vector<string> user_id_hint:flags.4?long verified_app_name:flags.7?string tc_session_id:flags.9?long tc_client_id:flags.10?string = UrlAuthResult;
 urlAuthResultAccepted#623a8fa0 flags:# url:flags.0?string = UrlAuthResult;
 urlAuthResultDefault#a9d6db1f = UrlAuthResult;
 
@@ -2371,6 +2371,8 @@ wallet.nftItems#794d486f flags:# items:Vector<wallet.NftItem> next_offset:flags.
 
 auth.firebasePnvIntent#df5ac00c nonce:string digital_credential_payload:string = auth.FirebasePnvIntent;
 
+inputTonConnectOauthSession#629f66ce session_id:long challenge_answer:bytes body:bytes proof:WalletOwnershipProof = InputTonConnectOauthSession;
+
 wallet.nftItem#173dfaf3 flags:# collection_address:flags.0?string address:string owner_address:string index:string name:flags.1?string description:flags.2?string image:flags.3?WebDocument image_small:flags.4?WebDocument content_url:flags.5?WebDocument lottie:flags.6?WebDocument attributes:flags.7?Vector<wallet.NftAttribute> extra:flags.8?DataJSON gift:flags.9?StarGift = wallet.NftItem;
 
 messages.messageEmpty#3f4e0648 = messages.Message;
@@ -2383,8 +2385,6 @@ shareThemeGift#ebece66d stargift:StarGift = ShareTheme;
 shareThemeBackdropOption#45c1d652 backdrop_id:int name:string center_color:int edge_color:int pattern_color:int text_color:int = ShareThemeBackdropOption;
 
 inputWalletCardSticker#57df45a7 coordinates:MediaAreaCoordinates nft_address:string = InputWalletCardSticker;
-
-inputTonConnectOauthSession#629f66ce session_id:long challenge_answer:bytes body:bytes proof:WalletOwnershipProof = InputTonConnectOauthSession;
 
 exportedNoPaidMessagesToken#695dd042 flags:# token:string url:string expires:flags.0?int = ExportedNoPaidMessagesToken;
 
