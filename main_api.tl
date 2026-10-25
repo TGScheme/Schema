@@ -509,7 +509,7 @@ updateWalletTonConnectSession#50a38e0e session:TonConnectSession = Update;
 updateWalletTonConnectPendingDisconnect#d1ee8199 session_ids:Vector<long> = Update;
 updateReadFeed#74585fb1 flags:# filter_id:int max_position:FeedPosition unread_count:flags.0?int unread_muted_count:flags.0?int = Update;
 updateTranscribeAudio#88617090 flags:# final:flags.0?true transcription_id:long text:string = Update;
-updateAgentSettings#9434e98d = Update;
+updateAgentSettings#9434e98d settings:agent.settings = Update;
 updateBotSubscriptionExpire#a8ae3eb1 user_id:long payload:string until_date:int qts:int = Update;
 
 updates.state#a56c2a3e pts:int qts:int date:int seq:int unread_count:int = updates.State;
@@ -2402,7 +2402,7 @@ payments.starGiftDepositPayload#725bb4eb nft_address:string payload:bytes amount
 messages.messageEmpty#3f4e0648 = messages.Message;
 
 agent.providersNotModified#43f756ad = agent.Providers;
-providers#872297f2 hash:long providers:Vector<AgentProvider> = agent.Providers;
+agent.providers#872297f2 hash:long providers:Vector<agent.Provider> = agent.Providers;
 
 agentProvider#47327c87 flags:# models_searchable:flags.0?true id:string title:string vendor:string key_url:string icon_emoji_id:flags.1?long = agent.Provider;
 
