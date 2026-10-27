@@ -59,8 +59,8 @@ inputMediaWebPage#c21b8849 flags:# force_large_media:flags.0?true force_small_me
 inputMediaPaidMedia#c4103386 flags:# stars_amount:long extended_media:Vector<InputMedia> payload:flags.0?string = InputMedia;
 inputMediaTodo#9fc55fde todo:TodoList = InputMedia;
 inputMediaStakeDice#f3a9244a game_hash:string ton_amount:long client_seed:bytes = InputMedia;
-inputMediaWidget#52d8dd85 flags:# allow_queries:flags.0?true fwd_allow_queries:flags.1?true shared_widget:flags.2?true width:int height:int html:string public_data:flags.3?bytes chat_data:flags.4?bytes = InputMedia;
-inputMediaWidgetId#7c855cb5 flags:# widget_id:long chat_data:flags.0?bytes = InputMedia;
+inputMediaWidget#44f6c04e flags:# allow_queries:flags.0?true shared_widget:flags.1?true width:int height:int html:string public_data:flags.2?string chat_data:flags.3?string = InputMedia;
+inputMediaWidgetId#7c855cb5 flags:# widget_id:long chat_data:flags.0?string = InputMedia;
 
 inputChatPhotoEmpty#1ca48f57 = InputChatPhoto;
 inputChatUploadedPhoto#bdcdaec0 flags:# file:flags.0?InputFile video:flags.1?InputFile video_start_ts:flags.2?double video_emoji_markup:flags.3?VideoSize = InputChatPhoto;
@@ -157,7 +157,7 @@ messageMediaGiveawayResults#ceaa3ea1 flags:# only_new_subscribers:flags.0?true r
 messageMediaPaidMedia#a8852491 stars_amount:long extended_media:Vector<MessageExtendedMedia> = MessageMedia;
 messageMediaToDo#8a53b014 flags:# todo:TodoList completions:flags.0?Vector<TodoCompletion> = MessageMedia;
 messageMediaVideoStream#ca5cab89 flags:# rtmp_stream:flags.0?true call:InputGroupCall = MessageMedia;
-messageMediaWidget#a831bf37 flags:# copy:flags.0?true can_query:flags.1?true background_query:flags.2?true width:int height:int payload:bytes public_data:flags.3?bytes chat_data:flags.4?bytes widget_id:flags.5?long = MessageMedia;
+messageMediaWidget#2238f214 flags:# copy:flags.0?true can_query:flags.1?true background_query:flags.2?true width:int height:int payload:bytes public_data:flags.3?string public_data_hash:flags.3?long chat_data:flags.4?string widget_id:flags.5?long = MessageMedia;
 
 messageActionEmpty#b6aef7b0 = MessageAction;
 messageActionChatCreate#bd47cbad title:string users:Vector<long> = MessageAction;
@@ -509,13 +509,13 @@ updateWalletGaslessInfo#a8ae1cac flags:# available:flags.0?true left:int reset_a
 updateWalletTonConnectSession#50a38e0e session:TonConnectSession = Update;
 updateWalletTonConnectPendingDisconnect#d1ee8199 session_ids:Vector<long> = Update;
 updateBotWidgetQuery#26816906 flags:# query_id:long user_id:long peer:Peer msg_id:int chat_instance:long chat_type:string data:bytes widget_id:flags.0?long = Update;
-updateMessageWidgetData#3800a794 flags:# peer:Peer msg_id:int public_data:flags.0?bytes chat_data:flags.1?bytes pts:int pts_count:int = Update;
 updateReadFeed#74585fb1 flags:# filter_id:int max_position:FeedPosition unread_count:flags.0?int unread_muted_count:flags.0?int = Update;
 updateTranscribeAudio#88617090 flags:# final:flags.0?true transcription_id:long text:string = Update;
 updateAgentSettings#9434e98d settings:agent.settings = Update;
 updateBotSubscriptionExpire#a8ae3eb1 user_id:long payload:string until_date:int qts:int = Update;
 updateInlineBotWidgetQuery#ab6fb64b flags:# query_id:long user_id:long inline_message_id:InputBotInlineMessageID chat_instance:long chat_type:string data:bytes widget_id:flags.0?long = Update;
 updateBotWidgetCopyQuery#b3323f58 flags:# query_id:long user_id:long data:bytes widget_id:long = Update;
+updateMessageWidgetData#bbb078dd flags:# peer:Peer msg_id:int public_data:flags.0?string public_data_hash:flags.0?long chat_data:flags.1?string pts:int pts_count:int = Update;
 
 updates.state#a56c2a3e pts:int qts:int date:int seq:int unread_count:int = updates.State;
 
@@ -844,7 +844,7 @@ botInlineMessageMediaContact#18d1cdc2 flags:# phone_number:string first_name:str
 botInlineMessageMediaInvoice#354a9b09 flags:# shipping_address_requested:flags.1?true test:flags.3?true title:string description:string photo:flags.0?WebDocument currency:string total_amount:long reply_markup:flags.2?ReplyMarkup = BotInlineMessage;
 botInlineMessageMediaWebPage#809ad9a6 flags:# invert_media:flags.3?true force_large_media:flags.4?true force_small_media:flags.5?true manual:flags.7?true safe:flags.8?true message:string entities:flags.1?Vector<MessageEntity> url:string reply_markup:flags.2?ReplyMarkup = BotInlineMessage;
 botInlineMessageRichMessage#a617e7b flags:# reply_markup:flags.2?ReplyMarkup rich_message:RichMessage = BotInlineMessage;
-botInlineMessageWidget#f1851c7e flags:# width:int height:int payload:bytes public_data:flags.0?bytes chat_data:flags.1?bytes reply_markup:flags.2?ReplyMarkup widget_id:flags.3?long = BotInlineMessage;
+botInlineMessageWidget#baa17834 flags:# width:int height:int payload:bytes public_data:flags.0?string public_data_hash:flags.0?long chat_data:flags.1?string reply_markup:flags.2?ReplyMarkup widget_id:flags.3?long message:string entities:flags.4?Vector<MessageEntity> = BotInlineMessage;
 
 botInlineResult#11965f3a flags:# id:string type:string title:flags.1?string description:flags.2?string url:flags.3?string thumb:flags.4?WebDocument content:flags.5?WebDocument send_message:BotInlineMessage = BotInlineResult;
 botInlineMediaResult#17db940b flags:# id:string type:string photo:flags.0?Photo document:flags.1?Document title:flags.2?string description:flags.3?string send_message:BotInlineMessage = BotInlineResult;
@@ -2410,7 +2410,7 @@ messages.messageEmpty#3f4e0648 = messages.Message;
 agent.providersNotModified#43f756ad = agent.Providers;
 agent.providers#872297f2 hash:long providers:Vector<agent.Provider> = agent.Providers;
 
-messages.widgetPublicData#4493bff hash:long data:bytes period:int = messages.WidgetPublicData;
+messages.widgetPublicData#4493bff hash:long data:string period:int = messages.WidgetPublicData;
 messages.widgetPublicDataNotModified#b9196e57 period:int = messages.WidgetPublicData;
 
 agentProvider#47327c87 flags:# models_searchable:flags.0?true id:string title:string vendor:string key_url:string icon_emoji_id:flags.1?long = agent.Provider;
@@ -2434,7 +2434,7 @@ feed.interestCategories#ecb62fa0 categories:Vector<feed.InterestCategory> select
 
 mnemonic.decryptedKeyPart#8b90dd08 share:bytes = mnemonic.DecryptedKeyPart;
 
-messages.botWidgetQueryAnswer#95b73023 flags:# result:flags.0?bytes = messages.BotWidgetQueryAnswer;
+messages.botWidgetQueryAnswer#95b73023 flags:# result:flags.0?string = messages.BotWidgetQueryAnswer;
 
 messages.webViewResult#aadf159b result:BotInlineResult users:Vector<User> = messages.WebViewResult;
 
@@ -2920,16 +2920,16 @@ messages.setShareTheme#698a9b1a peer:InputPeer theme:ShareTheme = Bool;
 messages.getShareThemeBackdrops#f4599ef2 hash:int = ShareThemeBackdrops;
 messages.getWebViewResult#22b6c214 peer:InputPeer bot:InputUser query_id:long = messages.WebViewResult;
 messages.forwardMessage#33963bf9 peer:InputPeer id:int random_id:long = Updates;
-messages.editInlineBotMessageWidgetData#6396ce2b flags:# id:InputBotInlineMessageID public_data:flags.0?bytes chat_data:flags.1?bytes = Bool;
+messages.editInlineBotMessageWidgetData#6396ce2b flags:# id:InputBotInlineMessageID public_data:flags.0?string chat_data:flags.1?string = Bool;
 messages.getWidgetPublicData#6fc53181 peer:InputPeer msg_id:int hash:long = messages.WidgetPublicData;
 messages.getShareTheme#761b1c73 peer:InputPeer = ShareTheme;
 messages.getStatsURL#812c2ae6 flags:# dark:flags.0?true peer:InputPeer params:string = StatsURL;
 messages.getAllChats#875f74be except_ids:Vector<long> = messages.Chats;
 messages.getBotWidgetQueryAnswer#d78dba1a peer:InputPeer msg_id:int data:bytes = messages.BotWidgetQueryAnswer;
 messages.setWebViewResult#e41cd11d query_id:long result:InputBotInlineResult = Bool;
-messages.editWidgetData#eac343c0 flags:# widget_id:long public_data:bytes cache_time:flags.0?int = Bool;
-messages.editMessageWidgetData#f624bc1e flags:# peer:InputPeer id:int public_data:flags.0?bytes chat_data:flags.1?bytes = Updates;
-messages.setBotWidgetQueryAnswer#f8cdec6a flags:# query_id:long result:flags.0?bytes = Bool;
+messages.editWidgetData#eac343c0 flags:# widget_id:long public_data:string cache_time:flags.0?int = Bool;
+messages.editMessageWidgetData#f624bc1e flags:# peer:InputPeer id:int public_data:flags.0?string chat_data:flags.1?string = Updates;
+messages.setBotWidgetQueryAnswer#f8cdec6a flags:# query_id:long result:flags.0?string = Bool;
 
 updates.getState#edd4882a = updates.State;
 updates.getDifference#19c2f763 flags:# pts:int pts_limit:flags.1?int pts_total_limit:flags.0?int date:int qts:int qts_limit:flags.2?int = updates.Difference;
