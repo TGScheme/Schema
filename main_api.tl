@@ -9,55 +9,6 @@
 
 ---types---
 
-// layer 232
-wallet.nftItem#173dfaf3 flags:# collection_address:flags.0?string address:string owner_address:string index:string name:flags.1?string description:flags.2?string image:flags.3?WebDocument image_small:flags.4?WebDocument content_url:flags.5?WebDocument lottie:flags.6?WebDocument attributes:flags.7?Vector<wallet.NftAttribute> extra:flags.8?DataJSON gift:flags.9?StarGift = wallet.NftItem;
-
-messageActionPhoneNumberRequest#1baa035 = MessageAction;
-messageActionNoPaidMessagesTokenUsed#c1d2f1c6 = MessageAction;
-
-messages.messageEmpty#3f4e0648 = messages.Message;
-
-inputShareThemeGift#3fb92b5b stargift:InputSavedStarGift = ShareTheme;
-shareThemeEmojiBackdrop#64b334e1 flags:# backdrop_id:flags.0?int emojis:flags.1?Vector<Reaction> = ShareTheme;
-shareThemeDefault#95ace84f = ShareTheme;
-shareThemeGift#ebece66d stargift:StarGift = ShareTheme;
-
-shareThemeBackdropOption#45c1d652 backdrop_id:int name:string center_color:int edge_color:int pattern_color:int text_color:int = ShareThemeBackdropOption;
-
-walletTransactionPeerChannel#54e70c31 flags:# channel_id:long address:string domain:flags.0?string = WalletTransactionPeer;
-walletTransactionPeerTelegramGift#f4729499 flags:# own_profile:flags.0?true = WalletTransactionPeer;
-
-inputWalletCardSticker#57df45a7 coordinates:MediaAreaCoordinates nft_address:string = InputWalletCardSticker;
-
-exportedNoPaidMessagesToken#695dd042 flags:# token:string url:string expires:flags.0?int = ExportedNoPaidMessagesToken;
-
-payments.starGiftDepositPayload#725bb4eb nft_address:string payload:bytes amount:long = payments.StarGiftDepositPayload;
-
-premiumGiftOption#79c059f7 flags:# months:int currency:string amount:long bot_url:flags.1?string store_product:flags.0?string = PremiumGiftOption;
-
-shareThemeBackdropsNotModified#7a3f6dff = ShareThemeBackdrops;
-shareThemeBackdrops#aaeadce0 hash:int backdrops:Vector<ShareThemeBackdropOption> = ShareThemeBackdrops;
-
-updateTranscribeAudio#88617090 flags:# final:flags.0?true transcription_id:long text:string = Update;
-updateBotSubscriptionExpire#a8ae3eb1 user_id:long payload:string until_date:int qts:int = Update;
-
-mnemonic.decryptedKeyPart#8b90dd08 share:bytes = mnemonic.DecryptedKeyPart;
-
-wallet.card#8ed043b1 flags:# stickers:flags.0?Vector<wallet.CardSticker> bg_nft_item:flags.1?wallet.NftItem address:string balance:long = wallet.Card;
-
-messages.webViewResult#aadf159b result:BotInlineResult users:Vector<User> = messages.WebViewResult;
-
-userStatusHidden#cf7d64b1 = UserStatus;
-
-webPageUrlPending#d41a5167 url:string = WebPage;
-
-inputMessagesFilterPhotoVideoDocuments#d95e73bb = MessagesFilter;
-
-wallet.cardSticker#f3010cba coordinates:MediaAreaCoordinates nft:wallet.NftItem = wallet.CardSticker;
-
-channelAdminLogEventActionChangeTheme#fe69018d prev_value:string new_value:string = ChannelAdminLogEventAction;
-
-// layer 233
 boolFalse#bc799737 = Bool;
 boolTrue#997275b5 = Bool;
 
@@ -159,6 +110,7 @@ userStatusOffline#8c703f was_online:int = UserStatus;
 userStatusRecently#7b197dc8 flags:# by_me:flags.0?true = UserStatus;
 userStatusLastWeek#541a1d1a flags:# by_me:flags.0?true = UserStatus;
 userStatusLastMonth#65899777 flags:# by_me:flags.0?true = UserStatus;
+userStatusHidden#cf7d64b1 = UserStatus;
 
 chatEmpty#29562865 id:long = Chat;
 chat#41cbf256 flags:# creator:flags.0?true kicked:flags.1?true left:flags.2?true deactivated:flags.5?true call_active:flags.23?true call_not_empty:flags.24?true noforwards:flags.25?true id:long title:string photo:ChatPhoto participants_count:int date:int version:int migrated_to:flags.6?InputChannel admin_rights:flags.14?ChatAdminRights default_banned_rights:flags.18?ChatBannedRights = Chat;
@@ -278,6 +230,8 @@ messageActionChangeCommunity#5d20bae8 flags:# community_id:flags.0?long = Messag
 messageActionChatJoinedViaCommunity#4a8bfe80 community_id:long = MessageAction;
 messageActionGramTransfer#9329ea33 flags:# comment_encrypted:flags.1?true amount:long peer_address:string transaction_id:string comment:flags.0?string = MessageAction;
 messageActionWalletTonConnectRequest#69b8c4bf flags:# accepted:flags.2?true declined:flags.3?true session_id:long expires:int topic:flags.0?string trace_id:flags.1?string dapp_name:flags.4?string = MessageAction;
+messageActionNoPaidMessagesTokenUsed#c1d2f1c6 = MessageAction;
+messageActionPhoneNumberRequest#1baa035 = MessageAction;
 
 dialog#fc89f7f3 flags:# pinned:flags.2?true unread_mark:flags.3?true view_forum_as_messages:flags.6?true peer:Peer top_message:int read_inbox_max_id:int read_outbox_max_id:int unread_count:int unread_mentions_count:int unread_reactions_count:int unread_poll_votes_count:int notify_settings:PeerNotifySettings pts:flags.0?int draft:flags.1?DraftMessage folder_id:flags.4?int ttl_period:flags.5?int = Dialog;
 dialogFolder#71bd134c flags:# pinned:flags.2?true folder:Folder peer:Peer top_message:int unread_muted_peers_count:int unread_unmuted_peers_count:int unread_muted_messages_count:int unread_unmuted_messages_count:int = Dialog;
@@ -382,6 +336,7 @@ inputMessagesFilterGeo#e7026d0d = MessagesFilter;
 inputMessagesFilterContacts#e062db83 = MessagesFilter;
 inputMessagesFilterPinned#1bb00451 = MessagesFilter;
 inputMessagesFilterPoll#fa2bc90a = MessagesFilter;
+inputMessagesFilterPhotoVideoDocuments#d95e73bb = MessagesFilter;
 
 updateNewMessage#1f2b0afd message:Message pts:int pts_count:int = Update;
 updateMessageID#4e90bfd6 id:int random_id:long = Update;
@@ -554,11 +509,13 @@ updateWalletGaslessInfo#a8ae1cac flags:# available:flags.0?true left:int reset_a
 updateWalletTonConnectSession#50a38e0e session:TonConnectSession = Update;
 updateWalletTonConnectPendingDisconnect#d1ee8199 session_ids:Vector<long> = Update;
 updateEditForumTopic#2366665c flags:# peer:Peer topic_id:int title:flags.0?string icon_emoji_id:flags.1?long closed:flags.2?Bool hidden:flags.3?Bool = Update;
-updateTranscribedAudioFile#734c2e7b flags:# pending:flags.0?true transcription_id:long text:string = Update;
-updateInlineBotWidgetQuery#a5f07e08 flags:# query_id:long query_type:WidgetQueryType user_id:long inline_message_id:InputBotInlineMessageID chat_instance:long chat_type:string data:bytes widget_id:flags.0?long wallet_card:flags.1?wallet.Card = Update;
 updateBotWidgetQuery#b373fe68 flags:# query_id:long query_type:WidgetQueryType user_id:long peer:Peer msg_id:int chat_instance:long chat_type:string data:bytes widget_id:flags.0?long wallet_card:flags.1?wallet.Card = Update;
-updateMessageWidgetData#bbb078dd flags:# peer:Peer msg_id:int public_data:flags.0?string public_data_hash:flags.0?long chat_data:flags.1?string pts:int pts_count:int = Update;
+updateInlineBotWidgetQuery#a5f07e08 flags:# query_id:long query_type:WidgetQueryType user_id:long inline_message_id:InputBotInlineMessageID chat_instance:long chat_type:string data:bytes widget_id:flags.0?long wallet_card:flags.1?wallet.Card = Update;
 updateBotWidgetCopyQuery#fa89bef7 flags:# query_id:long query_type:WidgetQueryType user_id:long data:bytes widget_id:long wallet_card:flags.1?wallet.Card = Update;
+updateMessageWidgetData#bbb078dd flags:# peer:Peer msg_id:int public_data:flags.0?string public_data_hash:flags.0?long chat_data:flags.1?string pts:int pts_count:int = Update;
+updateTranscribedAudioFile#734c2e7b flags:# pending:flags.0?true transcription_id:long text:string = Update;
+updateTranscribeAudio#88617090 flags:# final:flags.0?true transcription_id:long text:string = Update;
+updateBotSubscriptionExpire#a8ae3eb1 user_id:long payload:string until_date:int qts:int = Update;
 
 updates.state#a56c2a3e pts:int qts:int date:int seq:int unread_count:int = updates.State;
 
@@ -585,7 +542,7 @@ upload.fileCdnRedirect#f18cda44 dc_id:int file_token:bytes encryption_key:bytes 
 
 dcOption#18b7a10d flags:# ipv6:flags.0?true media_only:flags.1?true tcpo_only:flags.2?true cdn:flags.3?true static:flags.4?true this_port_only:flags.5?true id:int ip_address:string port:int secret:flags.10?bytes = DcOption;
 
-config#cc1a241e flags:# default_p2p_contacts:flags.3?true preload_featured_stickers:flags.4?true revoke_pm_inbox:flags.6?true blocked_mode:flags.8?true force_try_ipv6:flags.14?true date:int expires:int test_mode:Bool this_dc:int dc_options:Vector<DcOption> dc_txt_domain_name:string chat_size_max:int megagroup_size_max:int forwarded_count_max:int online_update_period_ms:int offline_blur_timeout_ms:int offline_idle_timeout_ms:int online_cloud_timeout_ms:int notify_cloud_delay_ms:int notify_default_delay_ms:int push_chat_period_ms:int push_chat_limit:int edit_time_limit:int revoke_time_limit:int revoke_pm_time_limit:int rating_e_decay:int stickers_recent_limit:int channels_read_media_period:int tmp_sessions:flags.0?int call_receive_timeout_ms:int call_ring_timeout_ms:int call_connect_timeout_ms:int call_packet_timeout_ms:int me_url_prefix:string autoupdate_url_prefix:flags.7?string gif_search_username:flags.9?string venue_search_username:flags.10?string img_search_username:flags.11?string static_maps_provider:flags.12?string caption_length_max:int message_length_max:int webfile_dc_id:int suggested_lang_code:flags.2?string lang_pack_version:flags.2?int base_lang_pack_version:flags.2?int reactions_default:flags.15?Reaction autologin_token:flags.16?string = Config;
+config#cc1a241e flags:# default_p2p_contacts:flags.3?true preload_featured_stickers:flags.4?true revoke_pm_inbox:flags.6?true blocked_mode:flags.8?true force_try_ipv6:flags.14?true fpnv_allowed:flags.17?true date:int expires:int test_mode:Bool this_dc:int dc_options:Vector<DcOption> dc_txt_domain_name:string chat_size_max:int megagroup_size_max:int forwarded_count_max:int online_update_period_ms:int offline_blur_timeout_ms:int offline_idle_timeout_ms:int online_cloud_timeout_ms:int notify_cloud_delay_ms:int notify_default_delay_ms:int push_chat_period_ms:int push_chat_limit:int edit_time_limit:int revoke_time_limit:int revoke_pm_time_limit:int rating_e_decay:int stickers_recent_limit:int channels_read_media_period:int tmp_sessions:flags.0?int call_receive_timeout_ms:int call_ring_timeout_ms:int call_connect_timeout_ms:int call_packet_timeout_ms:int me_url_prefix:string autoupdate_url_prefix:flags.7?string gif_search_username:flags.9?string venue_search_username:flags.10?string img_search_username:flags.11?string static_maps_provider:flags.12?string caption_length_max:int message_length_max:int webfile_dc_id:int suggested_lang_code:flags.2?string lang_pack_version:flags.2?int base_lang_pack_version:flags.2?int reactions_default:flags.15?Reaction autologin_token:flags.16?string = Config;
 
 nearestDc#8e1a1775 country:string this_dc:int nearest_dc:int = NearestDc;
 
@@ -742,6 +699,7 @@ webPageEmpty#211a1788 flags:# id:long url:flags.0?string = WebPage;
 webPagePending#b0d13e47 flags:# id:long url:flags.0?string date:int = WebPage;
 webPage#e89c45b2 flags:# has_large_media:flags.13?true video_cover_photo:flags.14?true id:long url:string display_url:string hash:int type:flags.0?string site_name:flags.1?string title:flags.2?string description:flags.3?string photo:flags.4?Photo embed_url:flags.5?string embed_type:flags.5?string embed_width:flags.6?int embed_height:flags.6?int duration:flags.7?int author:flags.8?string document:flags.9?Document cached_page:flags.10?Page attributes:flags.12?Vector<WebPageAttribute> = WebPage;
 webPageNotModified#7311ca11 flags:# cached_page_views:flags.0?int = WebPage;
+webPageUrlPending#d41a5167 url:string = WebPage;
 
 authorization#ad01d61d flags:# current:flags.0?true official_app:flags.1?true password_pending:flags.2?true encrypted_requests_disabled:flags.3?true call_requests_disabled:flags.4?true unconfirmed:flags.5?true hash:long device_model:string platform:string system_version:string api_id:int app_name:string app_version:string date_created:int date_active:int ip:string country:string region:string = Authorization;
 
@@ -1194,6 +1152,7 @@ channelAdminLogEventActionToggleSignatureProfiles#60a79c79 new_value:Bool = Chan
 channelAdminLogEventActionParticipantSubExtend#64642db3 prev_participant:ChannelParticipant new_participant:ChannelParticipant = ChannelAdminLogEventAction;
 channelAdminLogEventActionToggleAutotranslation#c517f77e new_value:Bool = ChannelAdminLogEventAction;
 channelAdminLogEventActionParticipantEditRank#5806b4ec user_id:long prev_rank:string new_rank:string = ChannelAdminLogEventAction;
+channelAdminLogEventActionChangeTheme#fe69018d prev_value:string new_value:string = ChannelAdminLogEventAction;
 
 channelAdminLogEvent#1fad68cd id:long date:int user_id:long action:ChannelAdminLogEventAction = ChannelAdminLogEvent;
 
@@ -2382,6 +2341,8 @@ walletTransactionPeerUser#d4ea706d flags:# user_id:long address:string domain:fl
 walletTransactionPeerAddress#62cc1bc flags:# address:string domain:flags.0?string = WalletTransactionPeer;
 walletTransactionPeerOnramp#e595186e flags:# address:string domain:flags.0?string provider_name:string = WalletTransactionPeer;
 walletTransactionPeerUnsupported#728bed5a = WalletTransactionPeer;
+walletTransactionPeerChannel#54e70c31 flags:# channel_id:long address:string domain:flags.0?string = WalletTransactionPeer;
+walletTransactionPeerTelegramGift#f4729499 flags:# own_profile:flags.0?true = WalletTransactionPeer;
 
 walletTransaction#952dc143 flags:# incoming:flags.0?true gasless:flags.1?true failed:flags.2?true key_change:flags.5?true comment_encrypted:flags.6?true id:string amount:long fee:long date:int peer:WalletTransactionPeer comment:flags.3?string tx_hash:flags.4?string nft:flags.7?wallet.NftItem = WalletTransaction;
 
@@ -2418,51 +2379,55 @@ wallet.existingBalance#bde90a8d flags:# has_balance:flags.0?true url:string = wa
 
 wallet.nftAttribute#4c1ef10e trait_type:string value:string = wallet.NftAttribute;
 
+wallet.nftItem#173dfaf3 flags:# collection_address:flags.0?string address:string owner_address:string index:string name:flags.1?string description:flags.2?string image:flags.3?WebDocument image_small:flags.4?WebDocument content_url:flags.5?WebDocument lottie:flags.6?WebDocument attributes:flags.7?Vector<wallet.NftAttribute> extra:flags.8?DataJSON gift:flags.9?StarGift = wallet.NftItem;
+
 wallet.nftItems#794d486f flags:# items:Vector<wallet.NftItem> next_offset:flags.0?string = wallet.NftItems;
 
 auth.firebasePnvIntent#df5ac00c nonce:string digital_credential_payload:string = auth.FirebasePnvIntent;
 
 inputTonConnectOauthSession#629f66ce session_id:long challenge_answer:bytes body:bytes proof:WalletOwnershipProof = InputTonConnectOauthSession;
 
+exportedNoPaidMessagesToken#695dd042 flags:# token:string url:string expires:flags.0?int = ExportedNoPaidMessagesToken;
+
+shareThemeDefault#95ace84f = ShareTheme;
+shareThemeEmojiBackdrop#64b334e1 flags:# backdrop_id:flags.0?int emojis:flags.1?Vector<Reaction> = ShareTheme;
+shareThemeGift#ebece66d stargift:StarGift = ShareTheme;
+inputShareThemeGift#3fb92b5b stargift:InputSavedStarGift = ShareTheme;
+
+shareThemeBackdropOption#45c1d652 backdrop_id:int name:string center_color:int edge_color:int pattern_color:int text_color:int = ShareThemeBackdropOption;
+
+shareThemeBackdropsNotModified#7a3f6dff = ShareThemeBackdrops;
+shareThemeBackdrops#aaeadce0 hash:int backdrops:Vector<ShareThemeBackdropOption> = ShareThemeBackdrops;
+
+inputWalletCardSticker#57df45a7 coordinates:MediaAreaCoordinates nft_address:string = InputWalletCardSticker;
+
+wallet.cardSticker#f3010cba coordinates:MediaAreaCoordinates nft:wallet.NftItem = wallet.CardSticker;
+
+wallet.card#8ed043b1 flags:# stickers:flags.0?Vector<wallet.CardSticker> bg_nft_item:flags.1?wallet.NftItem address:string balance:long = wallet.Card;
+
+payments.starGiftDepositPayload#725bb4eb nft_address:string payload:bytes amount:long = payments.StarGiftDepositPayload;
+
+userWallet#454d2737 flags:# address:string balance:long public_key:flags.0?bytes state_init:flags.0?bytes = UserWallet;
+
 widgetQueryTypeData#16d8cf0b flags:# with_wallet:flags.0?true = WidgetQueryType;
 widgetQueryTypeSignData#192047dc wallet:UserWallet sign_data:DataJSON = WidgetQueryType;
 widgetQueryTypeSentTransaction#ff3b33b4 wallet:UserWallet msg_hash:string = WidgetQueryType;
 
-messages.widgetPublicData#4493bff hash:long data:string period:int = messages.WidgetPublicData;
-messages.widgetPublicDataNotModified#b9196e57 period:int = messages.WidgetPublicData;
-
-userWallet#454d2737 flags:# address:string balance:long public_key:flags.0?bytes state_init:flags.0?bytes = UserWallet;
-
 messages.botWidgetQueryAnswer#95b73023 flags:# result:flags.0?string = messages.BotWidgetQueryAnswer;
+
+messages.widgetPublicDataNotModified#b9196e57 period:int = messages.WidgetPublicData;
+messages.widgetPublicData#4493bff hash:long data:string period:int = messages.WidgetPublicData;
+
+messages.messageEmpty#3f4e0648 = messages.Message;
+
+premiumGiftOption#79c059f7 flags:# months:int currency:string amount:long bot_url:flags.1?string store_product:flags.0?string = PremiumGiftOption;
+
+mnemonic.decryptedKeyPart#8b90dd08 share:bytes = mnemonic.DecryptedKeyPart;
+
+messages.webViewResult#aadf159b result:BotInlineResult users:Vector<User> = messages.WebViewResult;
 
 ---functions---
 
-// layer 232
-payments.requestRecurringPayment#146e958d user_id:InputUser recurring_init_charge:string invoice_media:InputMedia = Updates;
-payments.deleteStarGift#3cdaf8aa stargift:InputSavedStarGift = Bool;
-payments.displayStarGift#4aa5f0fe flags:# peer:flags.0?InputPeer slug:string = Bool;
-payments.depositStarGift#c0a2ea9f flags:# hide_sender:flags.0?true peer:InputPeer slug:string = payments.StarGiftDepositPayload;
-payments.getStarGiftWithdrawalUrl#c8ca817b flags:# stargift:InputSavedStarGift tmp_password:bytes = payments.StarGiftWithdrawalUrl;
-payments.withdrawStarGift#ec2030ae flags:# keep_on_profile:flags.0?true stargift:InputSavedStarGift tmp_password:bytes = Bool;
-
-folders.deleteFolder#1c295881 folder_id:int = Updates;
-
-messages.getWebViewResult#22b6c214 peer:InputPeer bot:InputUser query_id:long = messages.WebViewResult;
-messages.forwardMessage#33963bf9 peer:InputPeer id:int random_id:long = Updates;
-messages.setShareTheme#698a9b1a peer:InputPeer theme:ShareTheme = Bool;
-messages.getShareTheme#761b1c73 peer:InputPeer = ShareTheme;
-messages.getStatsURL#812c2ae6 flags:# dark:flags.0?true peer:InputPeer params:string = StatsURL;
-messages.getAllChats#875f74be except_ids:Vector<long> = messages.Chats;
-messages.setWebViewResult#e41cd11d query_id:long result:InputBotInlineResult = Bool;
-messages.getShareThemeBackdrops#f4599ef2 hash:int = ShareThemeBackdrops;
-
-contacts.importNoPaidMessagesToken#35a7c6ca user_id:InputUser token:string = User;
-contacts.importCard#4fe196fe export_card:Vector<int> = User;
-contacts.exportNoPaidMessagesToken#83c586ae flags:# revoke:flags.0?true temporary:flags.1?true = ExportedNoPaidMessagesToken;
-
-wallet.setCardStickers#68509ac flags:# stickers:Vector<InputWalletCardSticker> bg_nft_address:flags.0?string = wallet.Card;
-
-// layer 233
 invokeAfterMsg#cb9f372d {X:Type} msg_id:long query:!X = X;
 invokeAfterMsgs#3dc4b4f0 {X:Type} msg_ids:Vector<long> query:!X = X;
 initConnection#c1cd5ea9 {X:Type} flags:# api_id:int device_model:string system_version:string app_version:string system_lang_code:string lang_pack:string lang_code:string proxy:flags.0?InputClientProxy params:flags.1?JSONValue query:!X = X;
@@ -2671,6 +2636,9 @@ contacts.setBlocked#94c65c76 flags:# my_stories_from:flags.0?true id:Vector<Inpu
 contacts.getBirthdays#daeda864 = contacts.ContactBirthdays;
 contacts.getSponsoredPeers#b6c8c393 q:string = contacts.SponsoredPeers;
 contacts.updateContactNote#139f63fb id:InputUser note:TextWithEntities = Bool;
+contacts.exportNoPaidMessagesToken#83c586ae flags:# revoke:flags.0?true temporary:flags.1?true = ExportedNoPaidMessagesToken;
+contacts.importNoPaidMessagesToken#35a7c6ca user_id:InputUser token:string = User;
+contacts.importCard#4fe196fe export_card:Vector<int> = User;
 
 messages.getMessages#63c66506 id:Vector<InputMessage> = messages.Messages;
 messages.getDialogs#a0f4cb4f flags:# exclude_pinned:flags.0?true folder_id:flags.1?int offset_date:int offset_id:int offset_peer:InputPeer limit:int hash:long = messages.Dialogs;
@@ -2931,14 +2899,22 @@ messages.getRichMessage#501569cf peer:InputPeer id:int = messages.Messages;
 messages.translateRichMessage#1a542004 flags:# peer:flags.0?InputPeer id:flags.0?Vector<int> text:flags.1?Vector<InputRichMessage> to_lang:string tone:flags.2?string = messages.TranslatedRichMessage;
 messages.composeRichMessageWithAI#8d7ae6af flags:# proofread:flags.0?true emojify:flags.3?true text:flags.4?InputRichMessage translate_to_lang:flags.1?string tone:flags.2?InputAiComposeTone = messages.ComposedRichMessageWithAI;
 messages.requestChatJoinWebView#ba9ee679 flags:# query_id:long theme_params:flags.0?DataJSON platform:string = WebViewResult;
+messages.setShareTheme#698a9b1a peer:InputPeer theme:ShareTheme = Bool;
+messages.getShareThemeBackdrops#f4599ef2 hash:int = ShareThemeBackdrops;
 messages.getBotWidgetQueryAnswer#5c550579 peer:InputPeer msg_id:int query_type:WidgetQueryType data:bytes = messages.BotWidgetQueryAnswer;
+messages.setBotWidgetQueryAnswer#f8cdec6a flags:# query_id:long result:flags.0?string = Bool;
+messages.editMessageWidgetData#f624bc1e flags:# peer:InputPeer id:int public_data:flags.0?string chat_data:flags.1?string = Updates;
 messages.editInlineBotMessageWidgetData#6396ce2b flags:# id:InputBotInlineMessageID public_data:flags.0?string chat_data:flags.1?string = Bool;
+messages.editWidgetData#eac343c0 flags:# widget_id:long public_data:string cache_time:flags.0?int = Bool;
 messages.getWidgetPublicData#6fc53181 peer:InputPeer msg_id:int hash:long = messages.WidgetPublicData;
 messages.transcribeAudioFile#72d2ef7 file:InputFile = messages.TranscribedAudio;
 messages.getTranscriptionLangs#ba6cd9aa flags:# peer:flags.0?InputPeer = Vector<string>;
-messages.editWidgetData#eac343c0 flags:# widget_id:long public_data:string cache_time:flags.0?int = Bool;
-messages.editMessageWidgetData#f624bc1e flags:# peer:InputPeer id:int public_data:flags.0?string chat_data:flags.1?string = Updates;
-messages.setBotWidgetQueryAnswer#f8cdec6a flags:# query_id:long result:flags.0?string = Bool;
+messages.getWebViewResult#22b6c214 peer:InputPeer bot:InputUser query_id:long = messages.WebViewResult;
+messages.forwardMessage#33963bf9 peer:InputPeer id:int random_id:long = Updates;
+messages.getShareTheme#761b1c73 peer:InputPeer = ShareTheme;
+messages.getStatsURL#812c2ae6 flags:# dark:flags.0?true peer:InputPeer params:string = StatsURL;
+messages.getAllChats#875f74be except_ids:Vector<long> = messages.Chats;
+messages.setWebViewResult#e41cd11d query_id:long result:InputBotInlineResult = Bool;
 
 updates.getState#edd4882a = updates.State;
 updates.getDifference#19c2f763 flags:# pts:int pts_limit:flags.1?int pts_total_limit:flags.0?int date:int qts:int qts_limit:flags.2?int = updates.Difference;
@@ -3129,6 +3105,7 @@ payments.transferStarGift#7f18176a stargift:InputSavedStarGift to_id:InputPeer =
 payments.getUniqueStarGift#a1974d72 slug:string = payments.UniqueStarGift;
 payments.getSavedStarGifts#a319e569 flags:# exclude_unsaved:flags.0?true exclude_saved:flags.1?true exclude_unlimited:flags.2?true exclude_unique:flags.4?true sort_by_value:flags.5?true exclude_upgradable:flags.7?true exclude_unupgradable:flags.8?true peer_color_available:flags.9?true exclude_hosted:flags.10?true peer:InputPeer collection_id:flags.6?int offset:string limit:int = payments.SavedStarGifts;
 payments.getSavedStarGift#b455a106 stargift:Vector<InputSavedStarGift> = payments.SavedStarGifts;
+payments.getStarGiftWithdrawalUrl#c8ca817b flags:# stargift:InputSavedStarGift tmp_password:bytes = payments.StarGiftWithdrawalUrl;
 payments.toggleChatStarGiftNotifications#60eaefa1 flags:# enabled:flags.0?true peer:InputPeer = Bool;
 payments.toggleStarGiftsPinnedToTop#1513e7b0 peer:InputPeer stargift:Vector<InputSavedStarGift> = Bool;
 payments.canPurchaseStore#4fdc5ea7 purpose:InputStorePaymentPurpose = Bool;
@@ -3156,6 +3133,11 @@ payments.getOnrampAvailability#2ec29951 flags:# provider:string crypto_currency:
 payments.getOnrampLimits#80e851fd flags:# provider:string crypto_currency:string base_currency:string payment_method:flags.0?string = OnrampLimits;
 payments.getOnrampQuote#e06645fa flags:# provider:string crypto_currency:string base_currency:string base_amount:flags.0?string crypto_amount:flags.1?string payment_method:flags.2?string = OnrampQuote;
 payments.createOnrampSession#a2197cf6 flags:# provider:string crypto_currency:string address:string payment_method:flags.0?string base_currency:flags.1?string base_amount:flags.2?string memo:flags.3?string theme:flags.4?string success_return_url:flags.5?string fail_return_url:flags.6?string crypto_amount:flags.7?string = OnrampSession;
+payments.withdrawStarGift#ec2030ae flags:# keep_on_profile:flags.0?true stargift:InputSavedStarGift tmp_password:bytes = Bool;
+payments.depositStarGift#c0a2ea9f flags:# hide_sender:flags.0?true peer:InputPeer slug:string = payments.StarGiftDepositPayload;
+payments.displayStarGift#4aa5f0fe flags:# peer:flags.0?InputPeer slug:string = Bool;
+payments.deleteStarGift#3cdaf8aa stargift:InputSavedStarGift = Bool;
+payments.requestRecurringPayment#146e958d user_id:InputUser recurring_init_charge:string invoice_media:InputMedia = Updates;
 
 stickers.createStickerSet#9021ab67 flags:# masks:flags.0?true emojis:flags.5?true text_color:flags.6?true user_id:InputUser title:string short_name:string thumb:flags.2?InputDocument stickers:Vector<InputStickerSetItem> software:flags.3?string = messages.StickerSet;
 stickers.removeStickerFromSet#f7760f51 sticker:InputDocument = messages.StickerSet;
@@ -3220,6 +3202,7 @@ langpack.getLanguages#42c6978f lang_pack:string = Vector<LangPackLanguage>;
 langpack.getLanguage#6a596502 lang_pack:string lang_code:string = LangPackLanguage;
 
 folders.editPeerFolders#6847d0ab folder_peers:Vector<InputFolderPeer> = Updates;
+folders.deleteFolder#1c295881 folder_id:int = Updates;
 
 stats.getBroadcastStats#ab42441a flags:# dark:flags.0?true channel:InputChannel = stats.BroadcastStats;
 stats.loadAsyncGraph#621d5fa0 flags:# token:string x:flags.0?long = StatsGraph;
@@ -3347,5 +3330,6 @@ wallet.tonConnectSubmitResponse#fac67d3c flags:# session_id:long msg_id:int body
 wallet.tonConnectNextEventId#775d7244 session_id:long = TonConnectNextEventId;
 wallet.tonConnectCloseSession#d63f61ce flags:# session_id:long body:flags.0?bytes = Bool;
 wallet.tonConnectGetSessions#a7ffb56e = wallet.TonConnectSessions;
+wallet.setCardStickers#68509ac flags:# stickers:Vector<InputWalletCardSticker> bg_nft_address:flags.0?string = wallet.Card;
 
 // LAYER 233
