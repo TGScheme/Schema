@@ -231,9 +231,9 @@ messageActionChatJoinedViaCommunity#4a8bfe80 community_id:long = MessageAction;
 messageActionGramTransfer#34f87469 flags:# comment_encrypted:flags.1?true amount:long peer_address:string transaction_id:string comment:flags.0?string onramp_provider_name:flags.2?string = MessageAction;
 messageActionWalletTonConnectRequest#69b8c4bf flags:# accepted:flags.2?true declined:flags.3?true session_id:long expires:int topic:flags.0?string trace_id:flags.1?string dapp_name:flags.4?string = MessageAction;
 messageActionNoPaidMessagesTokenUsed#c1d2f1c6 = MessageAction;
-messageActionPhoneNumberRequest#1baa035 = MessageAction;
 messageActionStarGiftOnchainOffer#444a6568 flags:# accepted:flags.0?true declined:flags.1?true cancelled:flags.2?true expired:flags.3?true settled:flags.6?true buyer:flags.7?true cancelling:flags.8?true offer_id:long gift:StarGift amount:long fee_bps:int expires_at:int offer_address:string buyer_refund:flags.4?long fine:flags.5?long = MessageAction;
 messageActionBotInvite#e509b17b inviter_id:long = MessageAction;
+messageActionPhoneNumberRequest#1baa035 = MessageAction;
 
 dialog#fc89f7f3 flags:# pinned:flags.2?true unread_mark:flags.3?true view_forum_as_messages:flags.6?true peer:Peer top_message:int read_inbox_max_id:int read_outbox_max_id:int unread_count:int unread_mentions_count:int unread_reactions_count:int unread_poll_votes_count:int notify_settings:PeerNotifySettings pts:flags.0?int draft:flags.1?DraftMessage folder_id:flags.4?int ttl_period:flags.5?int = Dialog;
 dialogFolder#71bd134c flags:# pinned:flags.2?true folder:Folder peer:Peer top_message:int unread_muted_peers_count:int unread_unmuted_peers_count:int unread_muted_messages_count:int unread_unmuted_messages_count:int = Dialog;
@@ -2421,35 +2421,35 @@ messages.botWidgetQueryAnswer#95b73023 flags:# result:flags.0?string = messages.
 messages.widgetPublicDataNotModified#b9196e57 period:int = messages.WidgetPublicData;
 messages.widgetPublicData#4493bff hash:long data:string period:int = messages.WidgetPublicData;
 
+walletOnchainGiftActionBuy#f932b52d = WalletOnchainGiftAction;
+walletOnchainGiftActionDelist#9a082f8e = WalletOnchainGiftAction;
+walletOnchainGiftActionChangePrice#480a59bd flags:# old_price:flags.0?long new_price:long = WalletOnchainGiftAction;
+walletOnchainGiftActionOfferCreate#e50fd20e flags:# offer_address:string counterparty_address:flags.0?string price:long amount:long service_fee:long expires_at:flags.1?int = WalletOnchainGiftAction;
+walletOnchainGiftActionOfferAccept#f4d60e48 flags:# buyer:flags.0?true offer_address:string counterparty_address:string price:long service_fee:long = WalletOnchainGiftAction;
+walletOnchainGiftActionOfferCancel#65c8b78d flags:# offer_address:string counterparty_address:flags.0?string price:flags.1?long refund_amount:long fine:flags.2?long = WalletOnchainGiftAction;
+walletOnchainGiftActionOfferDecline#c5a854ec flags:# offer_address:string counterparty_address:flags.0?string price:flags.1?long refund_amount:long = WalletOnchainGiftAction;
+walletOnchainGiftActionOfferExpire#da858ed0 flags:# offer_address:string counterparty_address:flags.0?string price:flags.1?long refund_amount:long = WalletOnchainGiftAction;
+
 payments.starGiftOnchainSalePayload#3d1356f0 flags:# gasless_available:flags.0?true nft_address:string amount:long payload:bytes = payments.StarGiftOnchainSalePayload;
 payments.starGiftOnchainFixedSalePayload#82f9c2b7 flags:# sale_address:string messages:Vector<payments.StarGiftOnchainOfferTxMessage> gasless_messages:flags.0?Vector<payments.StarGiftOnchainOfferTxMessage> = payments.StarGiftOnchainSalePayload;
 
-messages.messageEmpty#3f4e0648 = messages.Message;
-
-walletOnchainGiftActionChangePrice#480a59bd flags:# old_price:flags.0?long new_price:long = WalletOnchainGiftAction;
-walletOnchainGiftActionOfferCancel#65c8b78d flags:# offer_address:string counterparty_address:flags.0?string price:flags.1?long refund_amount:long fine:flags.2?long = WalletOnchainGiftAction;
-walletOnchainGiftActionDelist#9a082f8e = WalletOnchainGiftAction;
-walletOnchainGiftActionOfferDecline#c5a854ec flags:# offer_address:string counterparty_address:flags.0?string price:flags.1?long refund_amount:long = WalletOnchainGiftAction;
-walletOnchainGiftActionOfferExpire#da858ed0 flags:# offer_address:string counterparty_address:flags.0?string price:flags.1?long refund_amount:long = WalletOnchainGiftAction;
-walletOnchainGiftActionOfferCreate#e50fd20e flags:# offer_address:string counterparty_address:flags.0?string price:long amount:long service_fee:long expires_at:flags.1?int = WalletOnchainGiftAction;
-walletOnchainGiftActionOfferAccept#f4d60e48 flags:# buyer:flags.0?true offer_address:string counterparty_address:string price:long service_fee:long = WalletOnchainGiftAction;
-walletOnchainGiftActionBuy#f932b52d = WalletOnchainGiftAction;
-
-premiumGiftOption#79c059f7 flags:# months:int currency:string amount:long bot_url:flags.1?string store_product:flags.0?string = PremiumGiftOption;
+payments.starGiftOnchainOfferTxInitState#8d6e475 code:bytes data:bytes = payments.StarGiftOnchainOfferTxInitState;
 
 payments.starGiftOnchainOfferTxMessage#889c8615 flags:# destination:string value:long mode:int body:bytes init_state:flags.0?payments.StarGiftOnchainOfferTxInitState = payments.StarGiftOnchainOfferTxMessage;
 
-mnemonic.decryptedKeyPart#8b90dd08 share:bytes = mnemonic.DecryptedKeyPart;
-
-payments.starGiftOnchainOfferTxInitState#8d6e475 code:bytes data:bytes = payments.StarGiftOnchainOfferTxInitState;
+payments.starGiftOnchainOfferTx#fe5681cf flags:# offer_id:long offer_address:string expires_at:int message:payments.StarGiftOnchainOfferTxMessage gasless_message:flags.3?payments.StarGiftOnchainOfferTxMessage rent_budget:flags.0?long execution_allowance:flags.0?long forward_amount:flags.1?long fine:flags.2?long = payments.StarGiftOnchainOfferTx;
 
 inputAiComposeStyle#a82101f0 flags:# emojify:flags.2?true proofread:flags.3?true tone:flags.0?InputAiComposeTone to_lang:flags.1?string = InputAiComposeStyle;
 
-messages.webViewResult#aadf159b result:BotInlineResult users:Vector<User> = messages.WebViewResult;
-
 transcriptionModel#c16f15 document:Document languages:Vector<string> version:int = TranscriptionModel;
 
-payments.starGiftOnchainOfferTx#fe5681cf flags:# offer_id:long offer_address:string expires_at:int message:payments.StarGiftOnchainOfferTxMessage gasless_message:flags.3?payments.StarGiftOnchainOfferTxMessage rent_budget:flags.0?long execution_allowance:flags.0?long forward_amount:flags.1?long fine:flags.2?long = payments.StarGiftOnchainOfferTx;
+messages.messageEmpty#3f4e0648 = messages.Message;
+
+premiumGiftOption#79c059f7 flags:# months:int currency:string amount:long bot_url:flags.1?string store_product:flags.0?string = PremiumGiftOption;
+
+mnemonic.decryptedKeyPart#8b90dd08 share:bytes = mnemonic.DecryptedKeyPart;
+
+messages.webViewResult#aadf159b result:BotInlineResult users:Vector<User> = messages.WebViewResult;
 
 ---functions---
 
@@ -2935,12 +2935,12 @@ messages.getWidgetPublicData#6fc53181 peer:InputPeer msg_id:int hash:long = mess
 messages.transcribeAudioFile#72d2ef7 file:InputFile = messages.TranscribedAudio;
 messages.getTranscriptionLangs#ba6cd9aa flags:# peer:flags.0?InputPeer = Vector<string>;
 messages.inviteUsersToBot#1db7effb bot:InputUser users:Vector<InputUser> = Bool;
+messages.getTranscriptionModels#81f6321 version:int = Vector<TranscriptionModel>;
 messages.getWebViewResult#22b6c214 peer:InputPeer bot:InputUser query_id:long = messages.WebViewResult;
 messages.forwardMessage#33963bf9 peer:InputPeer id:int random_id:long = Updates;
 messages.getStatsURL#812c2ae6 flags:# dark:flags.0?true peer:InputPeer params:string = StatsURL;
 messages.getAllChats#875f74be except_ids:Vector<long> = messages.Chats;
 messages.setWebViewResult#e41cd11d query_id:long result:InputBotInlineResult = Bool;
-messages.getTranscriptionModels#81f6321 version:int = Vector<TranscriptionModel>;
 
 updates.getState#edd4882a = updates.State;
 updates.getDifference#19c2f763 flags:# pts:int pts_limit:flags.1?int pts_total_limit:flags.0?int date:int qts:int qts_limit:flags.2?int = updates.Difference;
@@ -3086,7 +3086,6 @@ bots.editAccessSettings#31813cd8 flags:# restricted:flags.0?true bot:InputUser a
 bots.setJoinChatResults#e71a4810 query_id:long result:JoinChatBotResult = Bool;
 bots.addUsername#3501c08a bot:InputUser username:string = Bool;
 bots.removeUsername#c704147d bot:InputUser username:string = Bool;
-bots.setBotSettings#7cc0c0ca flags:# bot:flags.0?InputUser inline_mode:flags.1?Bool inline_placeholder:flags.2?string inline_geo:flags.3?Bool inline_feedback:flags.4?int nochats:flags.5?Bool chat_history:flags.6?Bool business:flags.7?Bool can_manage_bots:flags.8?Bool guestchat:flags.9?Bool guard:flags.10?Bool forum_view:flags.11?Bool forum_can_manage_topics:flags.12?Bool forum_sidebar:flags.13?Bool bot_to_bot_communication_mode:flags.14?Bool callback_mode:flags.15?string = User;
 
 payments.getPaymentForm#37148dbb flags:# invoice:InputInvoice theme_params:flags.0?DataJSON = payments.PaymentForm;
 payments.getPaymentReceipt#2478d1cc peer:InputPeer msg_id:int = payments.PaymentReceipt;
@@ -3164,15 +3163,15 @@ payments.withdrawStarGift#ec2030ae flags:# keep_on_profile:flags.0?true stargift
 payments.depositStarGift#c0a2ea9f flags:# hide_sender:flags.0?true peer:InputPeer slug:string = payments.StarGiftDepositPayload;
 payments.displayStarGift#4aa5f0fe flags:# peer:flags.0?InputPeer slug:string = Bool;
 payments.deleteStarGift#3cdaf8aa stargift:InputSavedStarGift = Bool;
-payments.requestRecurringPayment#146e958d user_id:InputUser recurring_init_charge:string invoice_media:InputMedia = Updates;
-payments.cancelStarGiftOnchainOffer#1c12babc offer_msg_id:int = payments.StarGiftOnchainOfferTx;
 payments.withdrawStarsRevenueToWallet#5717e709 flags:# ton:flags.0?true peer:InputPeer amount:flags.1?long tmp_password:bytes = Bool;
-payments.declineStarGiftOnchainOffer#5a1186a6 offer_msg_id:int = Updates;
 payments.buyStarGiftOnchain#5c76a369 flags:# show_name:flags.2?true slug:string expected_amount:long peer:flags.0?InputPeer message:flags.1?TextWithEntities = payments.StarGiftOnchainSalePayload;
+payments.updateStarGiftOnchainPrice#c240e3cf slug:string amount:long = payments.StarGiftOnchainSalePayload;
 payments.cancelStarGiftOnchainSale#a24f493a slug:string = payments.StarGiftOnchainSalePayload;
 payments.sendStarGiftOnchainOffer#b57d903e slug:string amount:long duration:int random_id:long = payments.StarGiftOnchainOfferTx;
-payments.updateStarGiftOnchainPrice#c240e3cf slug:string amount:long = payments.StarGiftOnchainSalePayload;
 payments.acceptStarGiftOnchainOffer#fbba9ede offer_msg_id:int = payments.StarGiftOnchainOfferTx;
+payments.declineStarGiftOnchainOffer#5a1186a6 offer_msg_id:int = Updates;
+payments.cancelStarGiftOnchainOffer#1c12babc offer_msg_id:int = payments.StarGiftOnchainOfferTx;
+payments.requestRecurringPayment#146e958d user_id:InputUser recurring_init_charge:string invoice_media:InputMedia = Updates;
 
 stickers.createStickerSet#9021ab67 flags:# masks:flags.0?true emojis:flags.5?true text_color:flags.6?true user_id:InputUser title:string short_name:string thumb:flags.2?InputDocument stickers:Vector<InputStickerSetItem> software:flags.3?string = messages.StickerSet;
 stickers.removeStickerFromSet#f7760f51 sticker:InputDocument = messages.StickerSet;
