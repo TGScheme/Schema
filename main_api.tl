@@ -288,7 +288,7 @@ inputReportReasonFake#f5ddd6e7 = ReportReason;
 inputReportReasonIllegalDrugs#a8eb2be = ReportReason;
 inputReportReasonPersonalDetails#9ec7863d = ReportReason;
 
-userFull#b90c2afd flags:# blocked:flags.0?true phone_calls_available:flags.4?true phone_calls_private:flags.5?true can_pin_message:flags.7?true has_scheduled:flags.12?true video_calls_available:flags.13?true voice_messages_forbidden:flags.20?true translations_disabled:flags.23?true stories_pinned_available:flags.26?true blocked_my_stories_from:flags.27?true wallpaper_overridden:flags.28?true contact_require_premium:flags.29?true read_dates_private:flags.30?true flags2:# sponsored_enabled:flags2.7?true can_view_revenue:flags2.9?true bot_can_manage_emoji_status:flags2.10?true display_gifts_button:flags2.16?true noforwards_my_enabled:flags2.23?true noforwards_peer_enabled:flags2.24?true unofficial_security_risk:flags2.26?true id:long about:flags.1?string settings:PeerSettings personal_photo:flags.21?Photo profile_photo:flags.2?Photo fallback_photo:flags.22?Photo notify_settings:PeerNotifySettings bot_info:flags.3?BotInfo pinned_msg_id:flags.6?int common_chats_count:int folder_id:flags.11?int ttl_period:flags.14?int theme:flags.15?ChatTheme private_forward_name:flags.16?string bot_group_admin_rights:flags.17?ChatAdminRights bot_broadcast_admin_rights:flags.18?ChatAdminRights wallpaper:flags.24?WallPaper stories:flags.25?PeerStories business_work_hours:flags2.0?BusinessWorkHours business_location:flags2.1?BusinessLocation business_greeting_message:flags2.2?BusinessGreetingMessage business_away_message:flags2.3?BusinessAwayMessage business_intro:flags2.4?BusinessIntro birthday:flags2.5?Birthday personal_channel_id:flags2.6?long personal_channel_message:flags2.6?int stargifts_count:flags2.8?int starref_program:flags2.11?StarRefProgram bot_verification:flags2.12?BotVerification send_paid_messages_stars:flags2.14?long disallowed_gifts:flags2.15?DisallowedGiftsSettings stars_rating:flags2.17?StarsRating stars_my_pending_rating:flags2.18?StarsRating stars_my_pending_rating_date:flags2.18?int main_tab:flags2.20?ProfileTab saved_music:flags2.21?Document note:flags2.22?TextWithEntities bot_manager_id:flags2.25?long wallet_card:flags2.19?wallet.Card share_theme:flags2.27?ShareTheme = UserFull;
+userFull#12c774ad flags:# blocked:flags.0?true phone_calls_available:flags.4?true phone_calls_private:flags.5?true can_pin_message:flags.7?true has_scheduled:flags.12?true video_calls_available:flags.13?true voice_messages_forbidden:flags.20?true translations_disabled:flags.23?true stories_pinned_available:flags.26?true blocked_my_stories_from:flags.27?true wallpaper_overridden:flags.28?true contact_require_premium:flags.29?true read_dates_private:flags.30?true flags2:# sponsored_enabled:flags2.7?true can_view_revenue:flags2.9?true bot_can_manage_emoji_status:flags2.10?true display_gifts_button:flags2.16?true noforwards_my_enabled:flags2.23?true noforwards_peer_enabled:flags2.24?true unofficial_security_risk:flags2.26?true id:long about:flags.1?string settings:PeerSettings personal_photo:flags.21?Photo profile_photo:flags.2?Photo fallback_photo:flags.22?Photo notify_settings:PeerNotifySettings bot_info:flags.3?BotInfo pinned_msg_id:flags.6?int common_chats_count:int folder_id:flags.11?int ttl_period:flags.14?int theme:flags.15?ChatTheme private_forward_name:flags.16?string bot_group_admin_rights:flags.17?ChatAdminRights bot_broadcast_admin_rights:flags.18?ChatAdminRights wallpaper:flags.24?WallPaper stories:flags.25?PeerStories business_work_hours:flags2.0?BusinessWorkHours business_location:flags2.1?BusinessLocation business_greeting_message:flags2.2?BusinessGreetingMessage business_away_message:flags2.3?BusinessAwayMessage business_intro:flags2.4?BusinessIntro birthday:flags2.5?Birthday personal_channel_id:flags2.6?long personal_channel_message:flags2.6?int stargifts_count:flags2.8?int starref_program:flags2.11?StarRefProgram bot_verification:flags2.12?BotVerification send_paid_messages_stars:flags2.14?long disallowed_gifts:flags2.15?DisallowedGiftsSettings stars_rating:flags2.17?StarsRating stars_my_pending_rating:flags2.18?StarsRating stars_my_pending_rating_date:flags2.18?int main_tab:flags2.20?ProfileTab saved_music:flags2.21?Document note:flags2.22?TextWithEntities bot_manager_id:flags2.25?long wallet_card:flags2.19?wallet.Card share_theme:flags2.27?ShareTheme bot_profile_widget:flags2.28?BotProfileWidget = UserFull;
 
 contact#145ade0b user_id:long mutual:Bool = Contact;
 
@@ -516,8 +516,13 @@ updateInlineBotWidgetQuery#a5f07e08 flags:# query_id:long query_type:WidgetQuery
 updateBotWidgetCopyQuery#fa89bef7 flags:# query_id:long query_type:WidgetQueryType user_id:long data:bytes widget_id:long wallet_card:flags.1?wallet.Card = Update;
 updateMessageWidgetData#bbb078dd flags:# peer:Peer msg_id:int public_data:flags.0?string public_data_hash:flags.0?long chat_data:flags.1?string pts:int pts_count:int = Update;
 updateTranscribedAudioFile#734c2e7b flags:# pending:flags.0?true transcription_id:long text:string = Update;
+updateReadFeed#74585fb1 flags:# filter_id:int max_position:FeedPosition unread_count:flags.0?int unread_muted_count:flags.0?int = Update;
 updateTranscribeAudio#88617090 flags:# final:flags.0?true transcription_id:long text:string = Update;
+updateBotProfileWidget#8ecbfbed flags:# bot_id:long widget:flags.0?BotProfileWidget = Update;
 updateBotSubscriptionExpire#a8ae3eb1 user_id:long payload:string until_date:int qts:int = Update;
+updateBotProfileWidgetQuery#a9e0f526 flags:# query_id:long query_type:WidgetQueryType user_id:long data:bytes wallet_card:flags.0?wallet.Card = Update;
+updateAgentSettings#ba97db77 settings:agent.Settings = Update;
+updateBotProfileWidgetData#e8c61aa8 bot_id:long chat_data:string = Update;
 
 updates.state#a56c2a3e pts:int qts:int date:int seq:int unread_count:int = updates.State;
 
@@ -1014,6 +1019,7 @@ inputPageBlockMap#574b617f geo:InputGeoPoint zoom:int w:int h:int caption:PageCa
 pageBlockBlockquoteBlocks#2613f896 flags:# collapsed:flags.0?true blocks:Vector<PageBlock> caption:RichText = PageBlock;
 pageBlockButtonRow#6d640318 flags:# align_left:flags.0?true align_center:flags.1?true align_right:flags.2?true buttons:Vector<PageButton> = PageBlock;
 pageBlockDocument#38fa3ba3 document_id:long caption:PageCaption = PageBlock;
+pageBlockGroup#3382fa83 flags:# no_animate:flags.1?true id:flags.0?string blocks:Vector<PageBlock> = PageBlock;
 
 phoneCallDiscardReasonMissed#85e42301 = PhoneCallDiscardReason;
 phoneCallDiscardReasonDisconnect#e095c1a0 = PhoneCallDiscardReason;
@@ -2219,7 +2225,7 @@ starGiftAttributeRarityLegendary#cef7e7a8 = StarGiftAttributeRarity;
 
 keyboardButtonStyle#4fdd3430 flags:# bg_primary:flags.0?true bg_danger:flags.1?true bg_success:flags.2?true icon:flags.3?long = KeyboardButtonStyle;
 
-inputMessageReadMetric#402b4495 msg_id:int view_id:long time_in_view_ms:int active_time_in_view_ms:int height_to_viewport_ratio_permille:int seen_range_ratio_permille:int = InputMessageReadMetric;
+inputMessageReadMetric#ea8fc40d msg_id:int view_id:long time_in_view_ms:int active_time_in_view_ms:int height_to_viewport_ratio_permille:int seen_range_ratio_permille:int flags:# recommendation_id:flags.0?long recommendation_rank:flags.1?int recommendation_role:flags.2?string surface:flags.3?string event_time:flags.4?int = InputMessageReadMetric;
 
 bots.exportedBotToken#3c60b621 token:string = bots.ExportedBotToken;
 
@@ -2443,13 +2449,46 @@ inputAiComposeStyle#a82101f0 flags:# emojify:flags.2?true proofread:flags.3?true
 
 transcriptionModel#c16f15 document:Document languages:Vector<string> version:int = TranscriptionModel;
 
+agent.models#32d50b38 flags:# models:Vector<agent.Model> next_offset:flags.0?string = agent.Models;
+
 messages.messageEmpty#3f4e0648 = messages.Message;
 
+agent.settings#41ff3dd7 flags:# effort_supported:flags.4?true keys:Vector<agent.ProviderKey> active_provider:flags.0?string model:flags.1?string model_name:flags.2?string effort:flags.3?string = agent.Settings;
+
+agent.providersNotModified#43f756ad = agent.Providers;
+agent.providers#872297f2 hash:long providers:Vector<agent.Provider> = agent.Providers;
+
+agentProvider#47327c87 flags:# models_searchable:flags.0?true id:string title:string vendor:string key_url:string icon_emoji_id:flags.1?long = agent.Provider;
+
+feedPosition#5059dc73 date:int peer:Peer id:int = FeedPosition;
+
+feedItemMessageGroup#652f4c71 messages:Vector<Message> = FeedItem;
+feedItemInterestCategories#6be7187b = FeedItem;
+feedItemMessage#7e73b3a5 message:Message = FeedItem;
+
+feed.interestCategory#6c4666e3 flags:# id:int title:string emoji:flags.0?string emoji_document_id:flags.1?long = feed.InterestCategory;
+
+inputFeedEvent#6f89170e peer:InputPeer msg_id:int action:string surface:string flags:# recommendation_id:flags.0?long recommendation_rank:flags.1?int recommendation_role:flags.2?string kind:flags.3?string duration_ms:flags.4?int event_time:flags.5?int random_id:flags.6?long = InputFeedEvent;
+
+agent.providerKey#784d7e10 provider:string key_last4:string date_connected:int = agent.ProviderKey;
+
 premiumGiftOption#79c059f7 flags:# months:int currency:string amount:long bot_url:flags.1?string store_product:flags.0?string = PremiumGiftOption;
+
+feed.interestCategoriesNotModified#79cf2195 = feed.InterestCategories;
+feed.interestCategories#ecb62fa0 categories:Vector<feed.InterestCategory> selected:Vector<int> = feed.InterestCategories;
+
+botProfileWidget#7c1a8022 flags:# can_query:flags.0?true background_query:flags.1?true payload:bytes public_data:flags.2?string public_data_hash:flags.2?long chat_data:flags.3?string = BotProfileWidget;
 
 mnemonic.decryptedKeyPart#8b90dd08 share:bytes = mnemonic.DecryptedKeyPart;
 
 messages.webViewResult#aadf159b result:BotInlineResult users:Vector<User> = messages.WebViewResult;
+
+feed.forYouFeed#bea16ebd flags:# items:Vector<FeedItem> chats:Vector<Chat> users:Vector<User> recommendation_id:flags.0?long = feed.ForYouFeed;
+
+agentModel#d5d43c2a flags:# effort_supported:flags.2?true id:string name:string description:flags.0?string icon_emoji_id:flags.1?long = agent.Model;
+
+feed.feedMessagesNotModified#db1a3503 = feed.FeedMessages;
+feed.feedMessages#dcf754b9 flags:# max_position:flags.0?FeedPosition min_position:flags.1?FeedPosition read_max_position:flags.2?FeedPosition messages:Vector<Message> chats:Vector<Chat> users:Vector<User> = feed.FeedMessages;
 
 ---functions---
 
@@ -2905,7 +2944,6 @@ messages.deleteTopicHistory#d2816f10 peer:InputPeer top_msg_id:int = messages.Af
 messages.getEmojiGameInfo#fb7e8ca7 = messages.EmojiGameInfo;
 messages.summarizeText#abbbd346 flags:# peer:InputPeer id:int to_lang:flags.0?string tone:flags.2?string = TextWithEntities;
 messages.editChatCreator#f743b857 peer:InputPeer user_id:InputUser password:InputCheckPasswordSRP = Updates;
-messages.getFutureChatCreatorAfterLeave#3b7d0ea6 peer:InputPeer = User;
 messages.editChatParticipantRank#a00f32b0 peer:InputPeer participant:InputPeer rank:string = Updates;
 messages.declineUrlAuth#35436bbc url:string = Bool;
 messages.checkUrlAuthMatchCode#c9a47b0b url:string match_code:string = Bool;
@@ -2938,9 +2976,11 @@ messages.inviteUsersToBot#1db7effb bot:InputUser users:Vector<InputUser> = Bool;
 messages.getTranscriptionModels#81f6321 version:int = Vector<TranscriptionModel>;
 messages.getWebViewResult#22b6c214 peer:InputPeer bot:InputUser query_id:long = messages.WebViewResult;
 messages.forwardMessage#33963bf9 peer:InputPeer id:int random_id:long = Updates;
+messages.getShareTheme#761b1c73 peer:InputPeer = ShareTheme;
 messages.getStatsURL#812c2ae6 flags:# dark:flags.0?true peer:InputPeer params:string = StatsURL;
 messages.getAllChats#875f74be except_ids:Vector<long> = messages.Chats;
 messages.setWebViewResult#e41cd11d query_id:long result:InputBotInlineResult = Bool;
+messages.reportFeedEvents#e4a2d5d0 events:Vector<InputFeedEvent> = Bool;
 
 updates.getState#edd4882a = updates.State;
 updates.getDifference#19c2f763 flags:# pts:int pts_limit:flags.1?int pts_total_limit:flags.0?int date:int qts:int qts_limit:flags.2?int = updates.Difference;
@@ -3001,7 +3041,7 @@ channels.editTitle#566decd0 channel:InputChannel title:string = Updates;
 channels.editPhoto#f12e57c9 channel:InputChannel photo:InputChatPhoto = Updates;
 channels.checkUsername#10e6bd2c channel:InputChannel username:string = Bool;
 channels.updateUsername#3514b3de channel:InputChannel username:string = Bool;
-channels.joinChannel#7f6a1e22 channel:InputChannel = messages.ChatInviteJoinResult;
+channels.joinChannel#416cb50c flags:# for_news:flags.0?true channel:InputChannel = messages.ChatInviteJoinResult;
 channels.leaveChannel#f836aa95 channel:InputChannel = Updates;
 channels.inviteToChannel#c9e33d54 channel:InputChannel users:Vector<InputUser> = messages.InvitedUsers;
 channels.deleteChannel#c0111fe3 channel:InputChannel = Updates;
@@ -3045,6 +3085,7 @@ channels.toggleAutotranslation#167fc0a1 channel:InputChannel enabled:Bool = Upda
 channels.getMessageAuthor#ece2a0e6 channel:InputChannel id:int = User;
 channels.checkSearchPostsFlood#22567115 flags:# query:flags.0?string = SearchPostsFlood;
 channels.setMainProfileTab#3583fcb1 channel:InputChannel tab:ProfileTab = Bool;
+channels.editChannelNews#d704f985 channel:InputChannel news:Bool = Updates;
 
 bots.sendCustomRequest#aa2769ed custom_method:string params:DataJSON = DataJSON;
 bots.answerWebhookJSONQuery#e6213f4d query_id:long data:DataJSON = Bool;
@@ -3076,9 +3117,7 @@ bots.getAdminedBots#b0711d83 = Vector<User>;
 bots.updateStarRefProgram#778b5ab3 flags:# bot:InputUser commission_permille:int duration_months:flags.0?int = StarRefProgram;
 bots.setCustomVerification#f4946757 flags:# enabled:flags.1?true bot:flags.0?InputUser peer:InputPeer custom_description:flags.2?TextWithEntities = Bool;
 bots.getBotRecommendations#a1b70815 bot:InputUser = users.Users;
-bots.checkUsername#e3ac4c61 flags:# additional:flags.0?true username:string = Bool;
 bots.createBot#e5b17f2b flags:# via_deeplink:flags.0?true name:string username:string manager_id:InputUser = User;
-bots.exportBotToken#bd0d99eb bot:InputUser revoke:Bool = bots.ExportedBotToken;
 bots.requestWebViewButton#31a2a35e user_id:InputUser button:KeyboardButton = bots.RequestedButton;
 bots.getRequestedWebViewButton#bf25b7f3 bot:InputUser webapp_req_id:string = KeyboardButton;
 bots.getAccessSettings#213853a3 bot:InputUser = bots.AccessSettings;
@@ -3086,6 +3125,10 @@ bots.editAccessSettings#31813cd8 flags:# restricted:flags.0?true bot:InputUser a
 bots.setJoinChatResults#e71a4810 query_id:long result:JoinChatBotResult = Bool;
 bots.addUsername#3501c08a bot:InputUser username:string = Bool;
 bots.removeUsername#c704147d bot:InputUser username:string = Bool;
+bots.editProfileWidgetData#35ff9572 flags:# cache_time:flags.0?int public_data:string = Bool;
+bots.getProfileWidgetPublicData#72a0d773 bot:InputUser hash:long = messages.WidgetPublicData;
+bots.getProfileWidgetQueryAnswer#85748074 bot:InputUser query_type:WidgetQueryType data:bytes = messages.BotWidgetQueryAnswer;
+bots.editProfileWidgetChatData#fcc22359 user_id:InputUser chat_data:string = Bool;
 
 payments.getPaymentForm#37148dbb flags:# invoice:InputInvoice theme_params:flags.0?DataJSON = payments.PaymentForm;
 payments.getPaymentReceipt#2478d1cc peer:InputPeer msg_id:int = payments.PaymentReceipt;
@@ -3367,4 +3410,21 @@ wallet.tonConnectCloseSession#d63f61ce flags:# session_id:long body:flags.0?byte
 wallet.tonConnectGetSessions#a7ffb56e = wallet.TonConnectSessions;
 wallet.setCardStickers#68509ac flags:# stickers:Vector<InputWalletCardSticker> bg_nft_address:flags.0?string = wallet.Card;
 
-// LAYER 234
+feed.likePost#1b4b627e peer:InputPeer msg_id:int = Bool;
+feed.getForYou#33b8e5eb flags:# query:flags.0?string limit:int = feed.ForYouFeed;
+feed.dislikePost#4d70175c peer:InputPeer msg_id:int = Bool;
+feed.getFeed#7e76d7d3 flags:# offset_to_max_read:flags.3?true filter_id:int offset_position:flags.0?FeedPosition add_offset:int limit:int max_position:flags.1?FeedPosition min_position:flags.2?FeedPosition hash:long = feed.FeedMessages;
+feed.setInterestCategories#9f2958dc category_ids:Vector<int> = Bool;
+feed.readFeed#b436c1ff filter_id:int max_position:FeedPosition = Updates;
+feed.getInterestCategories#ba7a1dba hash:long = feed.InterestCategories;
+
+agent.setModel#217e5447 model:string = agent.Settings;
+agent.setEffort#78f1d2c7 effort:string = agent.Settings;
+agent.disconnect#9abcf719 provider:string = agent.Settings;
+agent.setActiveProvider#bcb25188 provider:string = agent.Settings;
+agent.getProviders#ce0e7413 hash:long = agent.Providers;
+agent.getModels#e8d52912 flags:# provider:string query:flags.0?string offset:flags.1?string limit:int = agent.Models;
+agent.getSettings#fb0f9757 = agent.Settings;
+agent.connect#ff2471ec provider:string key:string = agent.Settings;
+
+// LAYER 235
